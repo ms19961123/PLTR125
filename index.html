@@ -1,976 +1,951 @@
---+<!DOCTYPE html>
---+<html lang="en">
---+  <head>
---+    <meta charset="UTF-8" />
---+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
---+    <title>Modern Landing Page</title>
---+    <link rel="stylesheet" href="styles.css" />
---+  </head>
---+  <body>
---+    <header class="site-header">
---+      <nav class="navbar" aria-label="Primary navigation">
---+        <a class="brand" href="#home">BrightStart</a>
---+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
---+          ☰
---+        </button>
---+        <ul class="nav-links">
---+          <li><a href="#home">Home</a></li>
---+          <li><a href="#features">Features</a></li>
---+          <li><a href="#about">About</a></li>
---+          <li><a href="#contact">Contact</a></li>
---+        </ul>
---+      </nav>
---+    </header>
---+
---+    <main>
---+      <section id="home" class="hero" aria-labelledby="hero-title">
---+        <div class="hero-content">
---+          <h1 id="hero-title">Build faster with confidence</h1>
---+          <p>
---+            BrightStart helps teams launch polished products quickly with clean workflows and
---+            thoughtful tooling.
---+          </p>
---+          <a class="cta-button" href="#features">Explore Features</a>
---+        </div>
---+      </section>
---+
---+      <section id="features" class="features" aria-labelledby="features-title">
---+        <h2 id="features-title">Why teams choose BrightStart</h2>
---+        <div class="feature-grid">
---+          <article class="feature-card">
---+            <h3>Fast setup</h3>
---+            <p>Get from idea to implementation in minutes with an intuitive onboarding flow.</p>
---+          </article>
---+          <article class="feature-card">
---+            <h3>Collaborative by design</h3>
---+            <p>Keep everyone aligned with clear milestones, updates, and shared context.</p>
---+          </article>
---+          <article class="feature-card">
---+            <h3>Reliable performance</h3>
---+            <p>Deliver smooth user experiences at scale with modern best practices built in.</p>
---+          </article>
---+        </div>
---+      </section>
---+    </main>
---+
---+    <footer id="contact" class="site-footer">
---+      <p>&copy; 2026 BrightStart. All rights reserved.</p>
---+    </footer>
---+  </body>
---+</html>
--- 
---EOF
---)
-- <!DOCTYPE html>
-- <html lang="en">
--   <head>
--     <meta charset="UTF-8" />
--     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
---    <title>Vanguard FP&amp;A | Executive Landing Page</title>
---    <style>
---      :root {
---        --bg: #f4f6fa;
---        --surface: #ffffff;
---        --surface-soft: #eef2f8;
---        --text: #16243a;
---        --muted: #4e5f7c;
---        --accent: #a8102e;
---        --border: #d9e1ef;
---        --shadow: 0 10px 28px rgba(21, 39, 72, 0.08);
---        --radius: 14px;
---      }
---
---      * {
---        box-sizing: border-box;
---      }
---
---      html {
---        scroll-behavior: smooth;
---      }
---
---      body {
---        margin: 0;
---        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
---        color: var(--text);
---        background: var(--bg);
---        line-height: 1.6;
---      }
---
---      .container {
---        width: min(1120px, 92%);
---        margin: 0 auto;
---      }
---
---      .site-header {
---        position: sticky;
---        top: 0;
---        z-index: 50;
---        background: rgba(255, 255, 255, 0.97);
---        border-bottom: 1px solid var(--border);
---        backdrop-filter: blur(6px);
---      }
---
---      .navbar {
---        display: flex;
---        justify-content: space-between;
---        align-items: center;
---        gap: 1rem;
---        padding: 0.95rem 0;
---      }
---
---      .brand {
---        text-decoration: none;
---        color: var(--text);
---        font-weight: 700;
---        letter-spacing: 0.01em;
---      }
---
---      .nav-links {
---        display: flex;
---        flex-wrap: wrap;
---        list-style: none;
---        margin: 0;
---        padding: 0;
---        gap: 0.95rem;
---      }
---
---      .nav-links a {
---        text-decoration: none;
---        color: var(--muted);
---        font-weight: 600;
---        font-size: 0.94rem;
---      }
---
---      .nav-links a:hover,
---      .nav-links a:focus-visible {
---        color: var(--accent);
---      }
---
---      .hero {
---        padding: 4.8rem 0 3rem;
---      }
---
---      .kicker {
---        margin: 0 0 0.6rem;
---        text-transform: uppercase;
---        letter-spacing: 0.14em;
---        font-size: 0.74rem;
---        font-weight: 700;
---        color: var(--accent);
---      }
---
---      h1 {
---        margin: 0;
---        font-size: clamp(2rem, 4.2vw, 3rem);
---        line-height: 1.2;
---        max-width: 21ch;
---      }
---
---      .lead {
---        margin: 1rem 0 0;
---        max-width: 72ch;
---        color: var(--muted);
---        font-size: 1.04rem;
---      }
---
---      .hero-grid {
---        margin-top: 1.35rem;
---        display: grid;
---        gap: 0.85rem;
---        grid-template-columns: repeat(3, minmax(0, 1fr));
---      }
---
---      .hero-note {
---        margin: 0;
---        background: var(--surface);
---        border: 1px solid var(--border);
---        border-radius: 12px;
---        padding: 0.85rem 0.95rem;
---        box-shadow: var(--shadow);
---        color: var(--muted);
---      }
---
---      .section {
---        padding: 1.7rem 0 3rem;
---      }
---
---      .section.alt {
---        background: var(--surface-soft);
---        border-top: 1px solid var(--border);
---        border-bottom: 1px solid var(--border);
---      }
---
---      h2 {
---        margin: 0 0 1rem;
---        font-size: clamp(1.35rem, 2.6vw, 1.95rem);
---      }
---
---      .cards {
---        display: grid;
---        gap: 1rem;
---      }
---
---      .cards.two {
---        grid-template-columns: repeat(2, minmax(0, 1fr));
---      }
---
---      .cards.three {
---        grid-template-columns: repeat(3, minmax(0, 1fr));
---      }
---
---      .card {
---        background: var(--surface);
---        border: 1px solid var(--border);
---        border-radius: var(--radius);
---        padding: 1.05rem;
---        box-shadow: var(--shadow);
---      }
---
---      .card h3 {
---        margin: 0 0 0.45rem;
---        font-size: 1.02rem;
---      }
---
---      .card p {
---        margin: 0;
---        color: var(--muted);
---      }
---
---      .checklist {
---        margin: 0;
---        padding-left: 1.2rem;
---      }
---
---      .checklist li {
---        margin-bottom: 0.7rem;
---        color: var(--muted);
---      }
---
---      .site-footer {
---        border-top: 1px solid var(--border);
---        background: #fff;
---        padding: 1.2rem 0;
---      }
---
---      .site-footer p {
---        margin: 0;
---        color: var(--muted);
---        font-size: 0.92rem;
---      }
---
---      @media (max-width: 980px) {
---        .hero-grid,
---        .cards.three {
---          grid-template-columns: repeat(2, minmax(0, 1fr));
---        }
---      }
---
---      @media (max-width: 720px) {
---        .navbar {
---          flex-direction: column;
---          align-items: flex-start;
---        }
---
---        .hero-grid,
---        .cards.two,
---        .cards.three {
---          grid-template-columns: 1fr;
---        }
---
---        .hero {
---          padding-top: 3.9rem;
---        }
---      }
---    </style>
--+    <title>Vanguard FP&amp;A | Strategic Finance Landing Page</title>
--+    <meta
--+      name="description"
--+      content="A clear overview of Financial Planning & Analysis at Vanguard, including planning cycles, forecasting, performance management, governance, tools, and team structure."
--+    />
--+    <link rel="stylesheet" href="styles.css" />
--   </head>
--   <body>
---    <header class="site-header">
---      <div class="container">
---        <nav class="navbar" aria-label="Primary navigation">
---          <a class="brand" href="#top">Vanguard FP&amp;A</a>
--+    <header class="site-header" id="top">
--+      <div class="container nav-wrap">
--+        <a class="brand" href="#top">Vanguard FP&amp;A</a>
--+        <nav aria-label="Primary">
--           <ul class="nav-links">
---            <li><a href="#mandate">Mandate</a></li>
---            <li><a href="#cycle">Planning Cycle</a></li>
---            <li><a href="#reporting">Reporting</a></li>
---            <li><a href="#governance">Governance</a></li>
---            <li><a href="#model">Operating Model</a></li>
--+            <li><a href="#overview">Overview</a></li>
--+            <li><a href="#planning">Planning</a></li>
--+            <li><a href="#forecasting">Forecasting</a></li>
--+            <li><a href="#performance">Performance</a></li>
--+            <li><a href="#operating-model">Operating Model</a></li>
--+            <li><a href="#tools">Tools</a></li>
--+            <li><a href="#roles">Roles</a></li>
--+            <li><a href="#contact">Contact</a></li>
--           </ul>
--         </nav>
--       </div>
--     </header>
-- 
---    <main id="top">
--+    <main>
--       <section class="hero" aria-labelledby="hero-title">
--         <div class="container">
---          <p class="kicker">Executive Overview</p>
--+          <p class="kicker">Enterprise Finance Excellence</p>
--           <h1 id="hero-title">Financial Planning &amp; Analysis at Vanguard</h1>
---          <p class="lead">
---            FP&amp;A aligns strategic priorities to financial outcomes through integrated planning,
---            rolling forecasts, governance discipline, and concise executive decision support.
--+          <p class="hero-text">
--+            FP&amp;A at Vanguard aligns strategy, resource allocation, and decision support across
--+            business units. This page summarizes the end-to-end model: annual planning,
--+            rolling forecasts, variance analysis, governance, systems, and talent capabilities.
--           </p>
---          <div class="hero-grid" role="list" aria-label="FP&A value outcomes">
---            <p class="hero-note" role="listitem"><strong>Strategic clarity:</strong> Resources focused on highest-value initiatives.</p>
---            <p class="hero-note" role="listitem"><strong>Forward visibility:</strong> Risk and performance signals identified early.</p>
---            <p class="hero-note" role="listitem"><strong>Decision velocity:</strong> Leadership receives clear actions, not just data.</p>
--+          <div class="hero-metrics">
--+            <article class="metric-card">
--+              <h2>12-Month</h2>
--+              <p>Rolling forecast horizon for proactive decision-making.</p>
--+            </article>
--+            <article class="metric-card">
--+              <h2>Monthly</h2>
--+              <p>Close, review, and performance narrative cadence.</p>
--+            </article>
--+            <article class="metric-card">
--+              <h2>Quarterly</h2>
--+              <p>Business reviews, reprioritization, and scenario refresh.</p>
--+            </article>
--           </div>
--         </div>
--       </section>
-- 
---      <section id="mandate" class="section" aria-labelledby="mandate-title">
--+      <section class="section" id="overview" aria-labelledby="overview-title">
--         <div class="container">
---          <h2 id="mandate-title">FP&amp;A Mandate</h2>
---          <div class="cards three">
--+          <h2 id="overview-title">What FP&amp;A Covers</h2>
--+          <div class="grid three">
--             <article class="card">
---              <h3>Strategy Translation</h3>
---              <p>Convert enterprise objectives into measurable revenue, cost, capital, and productivity commitments.</p>
--+              <h3>Strategic Alignment</h3>
--+              <p>
--+                Translate corporate objectives into measurable financial targets,
--+                investment priorities, and operating commitments.
--+              </p>
--             </article>
--             <article class="card">
---              <h3>Performance Stewardship</h3>
---              <p>Monitor growth, efficiency, and client outcomes with balanced KPIs and consistent accountability.</p>
--+              <h3>Financial Stewardship</h3>
--+              <p>
--+                Protect balance sheet and income statement health through disciplined
--+                planning, controls, and transparent governance.
--+              </p>
--             </article>
--             <article class="card">
---              <h3>Capital Discipline</h3>
---              <p>Evaluate investments through transparent business cases, stage gates, and benefits realization.</p>
--+              <h3>Decision Support</h3>
--+              <p>
--+                Provide forward-looking insights on growth, productivity, and risk to
--+                support leaders in timely decisions.
--+              </p>
--+            </article>
--+          </div>
--+        </div>
--+      </section>
--+
--+      <section class="section section-alt" id="planning" aria-labelledby="planning-title">
--+        <div class="container">
--+          <h2 id="planning-title">Annual Planning Cycle</h2>
--+          <div class="timeline">
--+            <article class="timeline-step">
--+              <h3>1. Strategic Inputs</h3>
--+              <p>Establish enterprise assumptions, macro outlook, and portfolio priorities.</p>
--+            </article>
--+            <article class="timeline-step">
--+              <h3>2. Bottom-Up Build</h3>
--+              <p>Develop function-level plans for revenue, expense, headcount, and capex.</p>
--+            </article>
--+            <article class="timeline-step">
--+              <h3>3. Challenge &amp; Calibration</h3>
--+              <p>Run cross-functional reviews to test assumptions and optimize trade-offs.</p>
--+            </article>
--+            <article class="timeline-step">
--+              <h3>4. Executive Approval</h3>
--+              <p>Finalize targets, align accountability, and publish operating guardrails.</p>
--             </article>
--           </div>
--         </div>
--       </section>
-- 
---      <section id="cycle" class="section alt" aria-labelledby="cycle-title">
--+      <section class="section" id="forecasting" aria-labelledby="forecasting-title">
--         <div class="container">
---          <h2 id="cycle-title">Planning &amp; Forecasting Cycle</h2>
---          <div class="cards two">
--+          <h2 id="forecasting-title">Rolling Forecast &amp; Scenario Planning</h2>
--+          <div class="grid two">
--             <article class="card">
---              <h3>Long-Range Plan (3-5 Years)</h3>
---              <p>Define multi-year trajectory by business segment with strategic assumptions and target envelopes.</p>
--+              <h3>Baseline Forecast</h3>
--+              <p>
--+                Monthly refresh of full-year outlook using latest actuals, business drivers,
--+                and updated assumptions.
--+              </p>
--             </article>
--             <article class="card">
---              <h3>Annual Operating Plan</h3>
---              <p>Set annual commitments with quarterly phasing, ownership, and measurable execution priorities.</p>
--+              <h3>Scenario Modeling</h3>
--+              <p>
--+                Evaluate upside, downside, and stress cases to quantify impacts on revenue,
--+                costs, liquidity, and strategic initiatives.
--+              </p>
--             </article>
--             <article class="card">
---              <h3>Rolling Reforecast</h3>
---              <p>Refresh full-year outlooks using key drivers including markets, flows, pricing, and productivity.</p>
--+              <h3>Driver-Based Models</h3>
--+              <p>
--+                Link financial outcomes to operational metrics such as client growth,
--+                AUM flows, productivity, and technology spend.
--+              </p>
--             </article>
--             <article class="card">
---              <h3>Variance-to-Action</h3>
---              <p>Quantify root causes, assess implications, and assign corrective actions with explicit timelines.</p>
--+              <h3>Action Triggers</h3>
--+              <p>
--+                Define thresholds that activate mitigation plans, reallocation decisions,
--+                and leadership escalation.
--+              </p>
--             </article>
--           </div>
--         </div>
--       </section>
-- 
---      <section id="reporting" class="section" aria-labelledby="reporting-title">
--+      <section class="section section-alt" id="performance" aria-labelledby="performance-title">
--         <div class="container">
---          <h2 id="reporting-title">Executive Reporting &amp; Analytics</h2>
---          <div class="cards three">
--+          <h2 id="performance-title">Performance Management</h2>
--+          <div class="grid three">
--             <article class="card">
---              <h3>KPI Architecture</h3>
---              <p>Balanced scorecard of growth, cost efficiency, client outcomes, and risk-adjusted performance.</p>
--+              <h3>Variance Analysis</h3>
--+              <p>
--+                Explain actual vs. plan and actual vs. forecast by identifying volume,
--+                rate, mix, timing, and one-time effects.
--+              </p>
--             </article>
--             <article class="card">
---              <h3>Leadership Reviews</h3>
---              <p>Monthly review packs with trend context, outlook changes, and decisions required.</p>
--+              <h3>KPI Scorecards</h3>
--+              <p>
--+                Track financial and operating KPIs with clear ownership,
--+                trend visibility, and target status.
--+              </p>
--             </article>
--             <article class="card">
---              <h3>Scenario Insights</h3>
---              <p>Base, upside, and downside sensitivity analysis to support resilient trade-off decisions.</p>
--+              <h3>Executive Narratives</h3>
--+              <p>
--+                Convert data into concise stories: what changed, why it matters,
--+                and what action is required next.
--+              </p>
--             </article>
--           </div>
--         </div>
--       </section>
-- 
---      <section id="governance" class="section alt" aria-labelledby="governance-title">
--+      <section class="section" id="operating-model" aria-labelledby="operating-model-title">
--         <div class="container">
---          <h2 id="governance-title">Governance &amp; Risk Integration</h2>
---          <ul class="checklist">
---            <li><strong>Investment governance:</strong> Standardized checkpoints from concept to delivery.</li>
---            <li><strong>Control rigor:</strong> Auditable assumptions, model governance, and consistent data definitions.</li>
---            <li><strong>Scenario readiness:</strong> Practical contingency views for changing market and business conditions.</li>
---            <li><strong>Outcome tracking:</strong> Benefit realization monitored against approved business cases.</li>
---          </ul>
--+          <h2 id="operating-model-title">Governance &amp; Operating Model</h2>
--+          <div class="grid two">
--+            <article class="card">
--+              <h3>Cadence</h3>
--+              <ul>
--+                <li>Monthly business reviews across each function</li>
--+                <li>Quarterly enterprise performance reviews</li>
--+                <li>Mid-year and year-end plan re-baselining</li>
--+              </ul>
--+            </article>
--+            <article class="card">
--+              <h3>Controls</h3>
--+              <ul>
--+                <li>Standardized assumptions and version control</li>
--+                <li>Approval gates for commitments and changes</li>
--+                <li>Audit-ready documentation and traceability</li>
--+              </ul>
--+            </article>
--+          </div>
--         </div>
--       </section>
-- 
---      <section id="model" class="section" aria-labelledby="model-title">
--+      <section class="section section-alt" id="tools" aria-labelledby="tools-title">
--         <div class="container">
---          <h2 id="model-title">Operating Model</h2>
---          <div class="cards two">
--+          <h2 id="tools-title">Data, Systems &amp; Automation</h2>
--+          <div class="grid three">
--             <article class="card">
---              <h3>Business FP&amp;A Partners</h3>
---              <p>Embed with divisions to shape plans and challenge assumptions near execution.</p>
--+              <h3>Data Foundation</h3>
--+              <p>
--+                Integrated actuals, workforce, and operational datasets governed with
--+                quality checks and consistent master data.
--+              </p>
--             </article>
--             <article class="card">
---              <h3>Corporate FP&amp;A</h3>
---              <p>Consolidate enterprise views and guide strategic trade-off discussions with leadership.</p>
--+              <h3>Planning Platform</h3>
--+              <p>
--+                Centralized planning and forecasting workflows with workflow approvals,
--+                scenario capability, and audit trails.
--+              </p>
--             </article>
--             <article class="card">
---              <h3>Analytics &amp; Systems</h3>
---              <p>Increase forecast accuracy and cycle speed via automation, data quality, and dashboards.</p>
--+              <h3>Reporting Layer</h3>
--+              <p>
--+                Automated dashboards and executive-ready reporting to shorten cycle time
--+                and increase focus on insights.
--+              </p>
--+            </article>
--+          </div>
--+        </div>
--+      </section>
--+
--+      <section class="section" id="roles" aria-labelledby="roles-title">
--+        <div class="container">
--+          <h2 id="roles-title">FP&amp;A Team Capabilities</h2>
--+          <div class="grid two">
--+            <article class="card">
--+              <h3>Core Roles</h3>
--+              <ul>
--+                <li>Corporate FP&amp;A leadership and governance</li>
--+                <li>Business unit finance partners</li>
--+                <li>Revenue, expense, and headcount analysts</li>
--+                <li>Data and planning systems specialists</li>
--+              </ul>
--             </article>
--             <article class="card">
---              <h3>Monthly Cadence</h3>
---              <p>Close → Analyze → Reforecast → Review → Act, with named owners and tracked actions.</p>
--+              <h3>Critical Skills</h3>
--+              <ul>
--+                <li>Financial modeling and forecasting rigor</li>
--+                <li>Storytelling with data for executives</li>
--+                <li>Scenario design and risk-based thinking</li>
--+                <li>Cross-functional collaboration and influence</li>
--+              </ul>
--             </article>
--           </div>
--         </div>
--       </section>
--+
--+      <section class="section cta" id="contact" aria-labelledby="cta-title">
--+        <div class="container cta-box">
--+          <h2 id="cta-title">Next Step: FP&amp;A Transformation Readiness</h2>
--+          <p>
--+            Use this framework to assess current maturity, prioritize improvements,
--+            and build a clear implementation roadmap for Vanguard's future-state FP&amp;A model.
--+          </p>
--+          <a href="#top" class="button">Back to Top</a>
--+        </div>
--+      </section>
--     </main>
-- 
--     <footer class="site-footer">
--       <div class="container">
---        <p>Vanguard FP&amp;A | Executive landing page covering mandate, planning cadence, governance, and performance management.</p>
--+        <p>Vanguard FP&amp;A Landing Page • Strategic Planning, Forecasting, and Performance Management</p>
--       </div>
--     </footer>
--   </body>
-- </html>
-- 
--EOF
--)
-+<!DOCTYPE html>
-+<html lang="en">
-+  <head>
-+    <meta charset="UTF-8" />
-+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+    <title>Vanguard FP&amp;A Work Summary</title>
-+    <link rel="stylesheet" href="styles.css" />
-+  </head>
-+  <body>
-+    <div class="bg-orb orb-1" aria-hidden="true"></div>
-+    <div class="bg-orb orb-2" aria-hidden="true"></div>
-+    <div class="bg-orb orb-3" aria-hidden="true"></div>
-+
-+    <header class="site-header">
-+      <div class="container header-inner">
-+        <a class="logo" href="#overview" aria-label="Vanguard FP&A home">
-+          <span class="logo-mark" aria-hidden="true"></span>
-+          <span>
-+            <strong>Vanguard FP&amp;A</strong>
-+            <small>Executive Dashboard</small>
-+          </span>
-+        </a>
-+        <nav aria-label="Primary navigation">
-+          <ul class="nav-list">
-+            <li><a href="#overview">Overview</a></li>
-+            <li><a href="#metrics">Metrics</a></li>
-+            <li><a href="#drivers">Drivers</a></li>
-+            <li><a href="#scenarios">Scenarios</a></li>
-+            <li><a href="#deliverables">Deliverables</a></li>
-+          </ul>
-+        </nav>
-+      </div>
-+    </header>
-+
-+    <main>
-+      <section id="overview" class="hero">
-+        <div class="container hero-content">
-+          <p class="eyebrow">Strategic Planning &amp; Performance</p>
-+          <h1>FP&amp;A Work Summary</h1>
-+          <p class="hero-subhead">
-+            A consolidated snapshot of planning cadence, forecast precision, and
-+            performance insights to support executive decision-making.
-+          </p>
-+          <div class="hero-actions">
-+            <a href="#metrics" class="btn btn-primary">View Highlights</a>
-+            <a href="#deliverables" class="btn btn-secondary">Download Summary</a>
-+          </div>
-+          <p class="illustrative-note">All charts and values are illustrative placeholders.</p>
-+        </div>
-+      </section>
-+
-+      <section id="metrics" class="section">
-+        <div class="container">
-+          <div class="section-heading">
-+            <h2>Performance Snapshot</h2>
-+            <p>Core metrics to monitor planning discipline and operating momentum.</p>
-+          </div>
-+
-+          <div class="kpi-grid">
-+            <article class="kpi-card">
-+              <div class="kpi-head">
-+                <h3>Budget vs Actual</h3>
-+                <span class="icon-badge">◔</span>
-+              </div>
-+              <p class="kpi-value">$X.XM</p>
-+              <p class="delta up">+X.X%</p>
-+              <svg viewBox="0 0 120 38" role="img" aria-label="Budget vs actual trend sparkline">
-+                <polyline points="2,30 20,28 38,24 56,19 74,17 92,12 118,8" />
-+              </svg>
-+            </article>
-+
-+            <article class="kpi-card">
-+              <div class="kpi-head">
-+                <h3>Forecast Accuracy</h3>
-+                <span class="icon-badge">◎</span>
-+              </div>
-+              <p class="kpi-value">XX.X%</p>
-+              <p class="delta up">+X.X pts</p>
-+              <svg viewBox="0 0 120 38" role="img" aria-label="Forecast accuracy sparkline">
-+                <polyline points="2,24 20,22 38,21 56,18 74,17 92,15 118,14" />
-+              </svg>
-+            </article>
-+
-+            <article class="kpi-card">
-+              <div class="kpi-head">
-+                <h3>Opex Run Rate</h3>
-+                <span class="icon-badge">◍</span>
-+              </div>
-+              <p class="kpi-value">$X.XM</p>
-+              <p class="delta down">-X.X%</p>
-+              <svg viewBox="0 0 120 38" role="img" aria-label="Opex run rate sparkline">
-+                <polyline points="2,12 20,14 38,17 56,19 74,21 92,24 118,28" />
-+              </svg>
-+            </article>
-+
-+            <article class="kpi-card">
-+              <div class="kpi-head">
-+                <h3>Net Flows</h3>
-+                <span class="icon-badge">↗</span>
-+              </div>
-+              <p class="kpi-value">$X.XB</p>
-+              <p class="delta up">+X.X%</p>
-+              <svg viewBox="0 0 120 38" role="img" aria-label="Net flows sparkline">
-+                <polyline points="2,31 20,30 38,25 56,23 74,16 92,18 118,10" />
-+              </svg>
-+            </article>
-+
-+            <article class="kpi-card">
-+              <div class="kpi-head">
-+                <h3>Headcount</h3>
-+                <span class="icon-badge">◉</span>
-+              </div>
-+              <p class="kpi-value">X,XXX</p>
-+              <p class="delta flat">±X.X%</p>
-+              <svg viewBox="0 0 120 38" role="img" aria-label="Headcount sparkline">
-+                <polyline points="2,20 20,20 38,19 56,20 74,18 92,19 118,18" />
-+              </svg>
-+            </article>
-+
-+            <article class="kpi-card">
-+              <div class="kpi-head">
-+                <h3>Margin</h3>
-+                <span class="icon-badge">◌</span>
-+              </div>
-+              <p class="kpi-value">XX.X%</p>
-+              <p class="delta up">+X.X pts</p>
-+              <svg viewBox="0 0 120 38" role="img" aria-label="Margin sparkline">
-+                <polyline points="2,29 20,25 38,24 56,20 74,16 92,14 118,11" />
-+              </svg>
-+            </article>
-+          </div>
-+        </div>
-+      </section>
-+
-+      <section class="section dashboard-row">
-+        <div class="container two-col">
-+          <article class="chart-card">
-+            <div class="card-top">
-+              <h2>Performance Trend</h2>
-+              <div class="legend">
-+                <span><i class="dot actual"></i>Actual</span>
-+                <span><i class="dot forecast"></i>Forecast</span>
-+              </div>
-+            </div>
-+            <svg class="chart-lg" viewBox="0 0 620 300" role="img" aria-label="Actual vs Forecast performance trend chart">
-+              <rect x="0" y="0" width="620" height="300" fill="transparent"/>
-+              <g class="grid">
-+                <line x1="70" y1="50" x2="590" y2="50"/>
-+                <line x1="70" y1="100" x2="590" y2="100"/>
-+                <line x1="70" y1="150" x2="590" y2="150"/>
-+                <line x1="70" y1="200" x2="590" y2="200"/>
-+                <line x1="70" y1="250" x2="590" y2="250"/>
-+              </g>
-+              <g class="axis">
-+                <line x1="70" y1="30" x2="70" y2="260"/>
-+                <line x1="70" y1="250" x2="590" y2="250"/>
-+                <text x="40" y="255">0</text>
-+                <text x="32" y="205">20</text>
-+                <text x="32" y="155">40</text>
-+                <text x="32" y="105">60</text>
-+                <text x="32" y="55">80</text>
-+                <text x="95" y="278">Jan</text>
-+                <text x="180" y="278">Feb</text>
-+                <text x="265" y="278">Mar</text>
-+                <text x="350" y="278">Apr</text>
-+                <text x="435" y="278">May</text>
-+                <text x="520" y="278">Jun</text>
-+              </g>
-+              <polyline class="line-actual" points="90,220 175,200 260,170 345,150 430,130 515,95"/>
-+              <polyline class="line-forecast" points="90,225 175,210 260,185 345,160 430,142 515,118"/>
-+            </svg>
-+            <p class="caption">Illustrative placeholders.</p>
-+          </article>
-+
-+          <article class="chart-card">
-+            <div class="card-top">
-+              <h2>Variance Waterfall (Illustrative)</h2>
-+            </div>
-+            <svg class="chart-lg" viewBox="0 0 620 300" role="img" aria-label="Variance waterfall chart">
-+              <line x1="70" y1="250" x2="590" y2="250" class="base-line"/>
-+              <g class="waterfall">
-+                <rect x="90" y="170" width="62" height="80" class="bar total"/>
-+                <rect x="182" y="140" width="62" height="30" class="bar pos"/>
-+                <rect x="274" y="140" width="62" height="55" class="bar neg"/>
-+                <rect x="366" y="115" width="62" height="25" class="bar pos"/>
-+                <rect x="458" y="115" width="62" height="60" class="bar neg"/>
-+                <rect x="550" y="175" width="62" height="75" class="bar total" transform="translate(-22,0)"/>
-+
-+                <line x1="152" y1="170" x2="182" y2="170" class="connector"/>
-+                <line x1="244" y1="140" x2="274" y2="140" class="connector"/>
-+                <line x1="336" y1="195" x2="366" y2="195" class="connector"/>
-+                <line x1="428" y1="115" x2="458" y2="115" class="connector"/>
-+                <line x1="520" y1="175" x2="528" y2="175" class="connector"/>
-+              </g>
-+              <g class="axis">
-+                <text x="96" y="270">Start</text>
-+                <text x="190" y="270">Mix</text>
-+                <text x="282" y="270">Costs</text>
-+                <text x="375" y="270">Price</text>
-+                <text x="464" y="270">Volume</text>
-+                <text x="535" y="270">End</text>
-+              </g>
-+            </svg>
-+            <p class="caption">Illustrative placeholders.</p>
-+          </article>
-+        </div>
-+      </section>
-+
-+      <section id="drivers" class="section">
-+        <div class="container">
-+          <div class="section-heading">
-+            <h2>Key Drivers</h2>
-+            <p>Infographic view of factors influencing monthly plan and outcomes.</p>
-+          </div>
-+          <div class="drivers-grid">
-+            <article class="driver-card accent-1">
-+              <h3><span class="driver-icon">◔</span>Market Drivers</h3>
-+              <ul>
-+                <li>Rate and spread sensitivity</li>
-+                <li>Seasonality in demand cycles</li>
-+                <li>Competitive pricing pressure</li>
-+              </ul>
-+            </article>
-+            <article class="driver-card accent-2">
-+              <h3><span class="driver-icon">◑</span>Cost Drivers</h3>
-+              <ul>
-+                <li>Vendor contract renewals</li>
-+                <li>Technology and cloud spend</li>
-+                <li>Compensation timing impacts</li>
-+              </ul>
-+            </article>
-+            <article class="driver-card accent-3">
-+              <h3><span class="driver-icon">◒</span>Product Mix</h3>
-+              <ul>
-+                <li>Channel-level contribution shifts</li>
-+                <li>Fee and margin composition</li>
-+                <li>Priority segment performance</li>
-+              </ul>
-+            </article>
-+            <article class="driver-card accent-4">
-+              <h3><span class="driver-icon">◕</span>Operational Levers</h3>
-+              <ul>
-+                <li>Workflow efficiency initiatives</li>
-+                <li>Hiring pace versus productivity</li>
-+                <li>Targeted discretionary controls</li>
-+              </ul>
-+            </article>
-+          </div>
-+        </div>
-+      </section>
-+
-+      <section id="scenarios" class="section">
-+        <div class="container">
-+          <div class="section-heading">
-+            <h2>Scenario Outlooks</h2>
-+            <p>Decision-ready alternatives with assumptions and expected impacts.</p>
-+          </div>
-+          <div class="scenario-grid">
-+            <article class="scenario-card">
-+              <h3>Base</h3>
-+              <p class="chips"><span>Stable demand</span><span>Moderate costs</span><span>Planned hiring</span></p>
-+              <p class="impact">Impact: Maintain trajectory with manageable variance.</p>
-+              <svg viewBox="0 0 180 70" role="img" aria-label="Base scenario mini bar chart">
-+                <rect x="12" y="30" width="28" height="30" />
-+                <rect x="52" y="24" width="28" height="36" />
-+                <rect x="92" y="20" width="28" height="40" />
-+                <rect x="132" y="16" width="28" height="44" />
-+              </svg>
-+            </article>
-+
-+            <article class="scenario-card up">
-+              <h3>Upside</h3>
-+              <p class="chips"><span>Flow acceleration</span><span>Mix uplift</span><span>Efficiency gains</span></p>
-+              <p class="impact">Impact: Expand margin and exceed plan targets.</p>
-+              <svg viewBox="0 0 180 70" role="img" aria-label="Upside scenario mini bar chart">
-+                <rect x="12" y="26" width="28" height="34" />
-+                <rect x="52" y="20" width="28" height="40" />
-+                <rect x="92" y="13" width="28" height="47" />
-+                <rect x="132" y="8" width="28" height="52" />
-+              </svg>
-+            </article>
-+
-+            <article class="scenario-card down">
-+              <h3>Downside</h3>
-+              <p class="chips"><span>Slower demand</span><span>Input inflation</span><span>Execution lag</span></p>
-+              <p class="impact">Impact: Pressure on run rate and delivery goals.</p>
-+              <svg viewBox="0 0 180 70" role="img" aria-label="Downside scenario mini bar chart">
-+                <rect x="12" y="36" width="28" height="24" />
-+                <rect x="52" y="34" width="28" height="26" />
-+                <rect x="92" y="31" width="28" height="29" />
-+                <rect x="132" y="28" width="28" height="32" />
-+              </svg>
-+            </article>
-+          </div>
-+        </div>
-+      </section>
-+
-+      <section id="deliverables" class="section">
-+        <div class="container">
-+          <div class="section-heading">
-+            <h2>Deliverables Timeline</h2>
-+            <p>Key planning checkpoints for executive review and operating alignment.</p>
-+          </div>
-+          <ol class="timeline">
-+            <li>
-+              <span class="date">MM/DD</span>
-+              <h3>Monthly Close Review</h3>
-+              <p>Finalized close package with commentary and reconciliations.</p>
-+            </li>
-+            <li>
-+              <span class="date">MM/DD</span>
-+              <h3>Forecast Refresh</h3>
-+              <p>Updated run-rate assumptions and full-period outlook.</p>
-+            </li>
-+            <li>
-+              <span class="date">MM/DD</span>
-+              <h3>Variance Deep Dive</h3>
-+              <p>Root-cause analysis of material plan-to-actual gaps.</p>
-+            </li>
-+            <li>
-+              <span class="date">MM/DD</span>
-+              <h3>Leadership Readout</h3>
-+              <p>Executive summary, risk flags, and recommendation set.</p>
-+            </li>
-+            <li>
-+              <span class="date">MM/DD</span>
-+              <h3>Next Month Action Plan</h3>
-+              <p>Prioritized actions, owner assignments, and KPI watchlist.</p>
-+            </li>
-+          </ol>
-+        </div>
-+      </section>
-+    </main>
-+
-+    <footer class="site-footer">
-+      <div class="container footer-grid">
-+        <div>
-+          <p><strong>Prepared by FP&amp;A</strong></p>
-+          <p>Last updated: MM/DD/YYYY</p>
-+        </div>
-+        <ul>
-+          <li><a href="#overview">Overview</a></li>
-+          <li><a href="#metrics">Metrics</a></li>
-+          <li><a href="#deliverables">Deliverables</a></li>
-+        </ul>
-+        <p class="disclaimer">All values are illustrative placeholders.</p>
-+      </div>
-+    </footer>
-+  </body>
-+</html>
- 
-EOF
-)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanguard FP&A Group</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #8b1a1a;
+      --primary-dark: #6b1010;
+      --accent: #c4a35a;
+      --bg: #f8f7f4;
+      --card-bg: #ffffff;
+      --text: #2c2c2c;
+      --text-light: #5a5a5a;
+      --border: #e8e4de;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --shadow-hover: 0 6px 24px rgba(0,0,0,0.12);
+      --radius: 10px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--primary);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      transition: background var(--transition);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 720px; }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(196,163,90,0.35);
+    }
+
+    /* ── Section shared ── */
+    section { padding: 80px 24px; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 16px auto 0;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ── Responsibilities ── */
+    #responsibilities { background: #fff; }
+
+    .accordion { display: grid; gap: 12px; }
+
+    .accordion-item {
+      background: var(--bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: box-shadow var(--transition);
+    }
+
+    .accordion-item:hover { box-shadow: var(--shadow); }
+
+    .accordion-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      background: none;
+      border: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: color var(--transition);
+    }
+
+    .accordion-btn:hover { color: var(--primary); }
+
+    .accordion-btn .icon-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .accordion-btn .acc-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .accordion-btn .chevron {
+      transition: transform var(--transition);
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+
+    .accordion-item.open .chevron { transform: rotate(180deg); }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .accordion-body-inner {
+      padding: 0 24px 20px 74px;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ── Chart ── */
+    #trends { background: var(--bg); }
+
+    .chart-container {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .chart-wrapper {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      height: 300px;
+      padding-top: 20px;
+      border-bottom: 2px solid var(--border);
+      position: relative;
+    }
+
+    .chart-bar-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      height: 100%;
+      justify-content: flex-end;
+    }
+
+    .bar-pair {
+      display: flex;
+      gap: 6px;
+      align-items: flex-end;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .bar {
+      width: 32px;
+      border-radius: 6px 6px 0 0;
+      transition: height 1s ease, opacity 0.5s ease;
+      position: relative;
+      cursor: pointer;
+      opacity: 0;
+    }
+
+    .bar.revenue { background: var(--primary); }
+    .bar.expenses { background: var(--accent); }
+
+    .bar:hover { filter: brightness(1.15); }
+
+    .bar-tooltip {
+      position: absolute;
+      top: -32px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--text);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+
+    .bar:hover .bar-tooltip { opacity: 1; }
+
+    .bar-label {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    .y-axis {
+      position: absolute;
+      left: -40px;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--text-light);
+    }
+
+    /* ── Team ── */
+    #team { background: #fff; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .team-card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .team-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: var(--primary);
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 700;
+      overflow: hidden;
+    }
+
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .team-card .title {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .team-card .bio {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* ── Contact ── */
+    #contact { background: var(--bg); }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+
+    .contact-info p {
+      color: var(--text-light);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .contact-detail .detail-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-form {
+      background: #fff;
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .form-group { margin-bottom: 20px; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: var(--bg);
+      color: var(--text);
+      transition: all var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(139,26,26,0.1);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(139,26,26,0.25);
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px;
+      color: var(--primary);
+    }
+
+    .form-success svg { margin-bottom: 12px; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--primary-dark);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.9rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── Scroll-reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--primary-dark);
+        flex-direction: column;
+        padding: 16px;
+        gap: 4px;
+        transform: translateY(-110%);
+        transition: transform var(--transition);
+      }
+
+      .nav-links.open { transform: translateY(0); }
+
+      .nav-links a {
+        display: block;
+        padding: 12px 16px;
+        border-radius: 8px;
+      }
+
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .chart-wrapper { height: 220px; }
+
+      .bar { width: 22px; }
+
+      section { padding: 60px 16px; }
+
+      .y-axis { left: -30px; font-size: 0.6rem; }
+    }
+
+    @media (max-width: 480px) {
+      .bar { width: 16px; }
+      .chart-wrapper { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="6" fill="#c4a35a"/>
+          <path d="M7 20V8l7 6 7-6v12" stroke="#6b1010" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Vanguard <span>FP&A</span>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#responsibilities">Responsibilities</a></li>
+        <li><a href="#trends">Trends</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Financial Planning <span>&</span> Analysis</h1>
+      <p>Driving strategic decisions through data-driven insights, rigorous financial modeling, and cross-functional business partnership.</p>
+      <a href="#responsibilities" class="hero-btn">Explore Our Work</a>
+    </div>
+  </section>
+
+  <!-- Responsibilities -->
+  <section id="responsibilities">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Our Responsibilities</h2>
+        <p>Core capabilities that power Vanguard's financial strategy and operational excellence.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="accordion reveal" id="accordion"></div>
+    </div>
+  </section>
+
+  <!-- Financial Trends Chart -->
+  <section id="trends">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Financial Trends</h2>
+        <p>Year-over-year revenue and expense analysis across fiscal quarters.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="chart-container reveal">
+        <div class="chart-wrapper" id="chartWrapper" style="margin-left: 48px;"></div>
+        <div class="chart-legend">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--primary)"></div>
+            Revenue ($M)
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--accent)"></div>
+            Expenses ($M)
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Meet the Team</h2>
+        <p>Experienced professionals dedicated to delivering actionable financial intelligence.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="team-grid reveal" id="teamGrid"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Get in Touch</h2>
+        <p>Have a question or need FP&A support? We'd love to hear from you.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="contact-wrapper reveal">
+        <div class="contact-info">
+          <h3>Let's Connect</h3>
+          <p>Whether you need budget guidance, forecast support, or strategic analysis, our team is here to help drive your business forward.</p>
+          <div class="contact-detail">
+            <div class="detail-icon">&#9993;</div>
+            <div>fpa@vanguard.com</div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-icon">&#9742;</div>
+            <div>(610) 669-1000</div>
+          </div>
+          <div class="contact-detail">
+            <div class="detail-icon">&#9873;</div>
+            <div>100 Vanguard Blvd, Malvern, PA 19355</div>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div id="formFields">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="jane.smith@vanguard.com" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="How can we help you?" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="24" fill="#8b1a1a" opacity="0.1"/>
+              <path d="M15 25l6 6 12-14" stroke="#8b1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 style="margin-bottom:8px">Message Sent!</h3>
+            <p style="color:var(--text-light);font-size:0.95rem">Thank you for reaching out. Our team will get back to you shortly.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 Vanguard Financial Planning & Analysis. Built with purpose.
+  </footer>
+
+  <script>
+    // ── Data ──
+    const responsibilities = [
+      { icon: '&#36;', title: 'Budgeting', body: 'Develop and manage annual operating and capital budgets across all business units. Coordinate cross-departmental budget reviews, track allocations against strategic priorities, and ensure fiscal discipline organization-wide.' },
+      { icon: '&#9783;', title: 'Forecasting', body: 'Produce rolling financial forecasts using statistical models and scenario planning. Incorporate macroeconomic indicators, market trends, and operational drivers to deliver reliable projections that guide executive decision-making.' },
+      { icon: '&#9733;', title: 'Strategic Planning', body: 'Partner with senior leadership on long-range financial planning, M&A evaluation, and capital allocation strategy. Translate corporate objectives into actionable financial roadmaps with clear milestones and KPIs.' },
+      { icon: '&#916;', title: 'Variance Analysis', body: 'Perform detailed actual-vs-budget and actual-vs-forecast variance analysis. Identify root causes of financial deviations, quantify their business impact, and recommend corrective actions to keep performance on track.' },
+      { icon: '&#120031;', title: 'Financial Modeling', body: 'Build and maintain sophisticated financial models for valuation, sensitivity analysis, and scenario planning. Support investment decisions, pricing strategies, and new product launches with robust quantitative frameworks.' },
+      { icon: '&#9632;', title: 'Dashboards & Reporting', body: 'Design interactive dashboards and automated reporting solutions that provide real-time visibility into financial KPIs. Empower stakeholders with self-service analytics and actionable insights.' },
+      { icon: '&#9829;', title: 'Business Partnering', body: 'Serve as trusted financial advisors embedded within business units. Provide proactive insights, challenge assumptions, and help operational leaders make data-driven decisions aligned with company strategy.' }
+    ];
+
+    const chartData = [
+      { label: 'Q1 2024', revenue: 142, expenses: 118 },
+      { label: 'Q2 2024', revenue: 158, expenses: 125 },
+      { label: 'Q3 2024', revenue: 149, expenses: 121 },
+      { label: 'Q4 2024', revenue: 172, expenses: 134 },
+      { label: 'Q1 2025', revenue: 165, expenses: 129 },
+      { label: 'Q2 2025', revenue: 183, expenses: 138 },
+      { label: 'Q3 2025', revenue: 178, expenses: 142 },
+      { label: 'Q4 2025', revenue: 196, expenses: 148 }
+    ];
+
+    const teamMembers = [
+      { name: 'Sarah Mitchell', title: 'VP, Financial Planning & Analysis', initials: 'SM', bio: 'Leads enterprise-wide FP&A strategy with 15+ years in corporate finance.' },
+      { name: 'David Chen', title: 'Senior Financial Analyst', initials: 'DC', bio: 'Specializes in advanced financial modeling and scenario-based forecasting.' },
+      { name: 'Rachel Thompson', title: 'Budget Manager', initials: 'RT', bio: 'Oversees annual budgeting processes and cross-functional coordination.' },
+      { name: 'Marcus Johnson', title: 'Business Intelligence Lead', initials: 'MJ', bio: 'Designs executive dashboards and drives data analytics initiatives.' },
+      { name: 'Priya Patel', title: 'Strategic Planning Analyst', initials: 'PP', bio: 'Partners with leadership on long-range planning and capital allocation.' },
+      { name: 'James Rivera', title: 'FP&A Associate', initials: 'JR', bio: 'Supports variance analysis, reporting automation, and ad-hoc analysis.' }
+    ];
+
+    // ── Build Accordion ──
+    const accordionEl = document.getElementById('accordion');
+    responsibilities.forEach((item, i) => {
+      const div = document.createElement('div');
+      div.className = 'accordion-item';
+      div.innerHTML = `
+        <button class="accordion-btn" aria-expanded="false">
+          <span class="icon-wrap">
+            <span class="acc-icon">${item.icon}</span>
+            ${item.title}
+          </span>
+          <span class="chevron">&#9662;</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">${item.body}</div>
+        </div>`;
+      accordionEl.appendChild(div);
+    });
+
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const body = btn.nextElementSibling;
+        const isOpen = item.classList.contains('open');
+
+        document.querySelectorAll('.accordion-item').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.accordion-body').style.maxHeight = null;
+          el.querySelector('.accordion-btn').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          item.classList.add('open');
+          body.style.maxHeight = body.scrollHeight + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ── Build Chart ──
+    const chartWrapper = document.getElementById('chartWrapper');
+    const maxVal = Math.max(...chartData.flatMap(d => [d.revenue, d.expenses]));
+
+    // Y-axis
+    const yAxis = document.createElement('div');
+    yAxis.className = 'y-axis';
+    for (let i = 0; i <= 4; i++) {
+      const label = document.createElement('span');
+      label.textContent = '$' + Math.round(maxVal - (maxVal / 4) * i) + 'M';
+      yAxis.appendChild(label);
+    }
+    chartWrapper.appendChild(yAxis);
+
+    chartData.forEach((d, i) => {
+      const group = document.createElement('div');
+      group.className = 'chart-bar-group';
+      const revH = (d.revenue / maxVal) * 100;
+      const expH = (d.expenses / maxVal) * 100;
+      group.innerHTML = `
+        <div class="bar-pair">
+          <div class="bar revenue" style="height:0%" data-height="${revH}">
+            <div class="bar-tooltip">$${d.revenue}M</div>
+          </div>
+          <div class="bar expenses" style="height:0%" data-height="${expH}">
+            <div class="bar-tooltip">$${d.expenses}M</div>
+          </div>
+        </div>
+        <span class="bar-label">${d.label}</span>`;
+      chartWrapper.appendChild(group);
+    });
+
+    // Animate bars when visible
+    let chartAnimated = false;
+    function animateChart() {
+      if (chartAnimated) return;
+      const rect = chartWrapper.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.85) {
+        chartAnimated = true;
+        document.querySelectorAll('.bar').forEach((bar, i) => {
+          setTimeout(() => {
+            bar.style.height = bar.dataset.height + '%';
+            bar.style.opacity = '1';
+          }, i * 80);
+        });
+      }
+    }
+
+    // ── Build Team ──
+    const teamGrid = document.getElementById('teamGrid');
+    teamMembers.forEach(m => {
+      const card = document.createElement('div');
+      card.className = 'team-card';
+      card.innerHTML = `
+        <div class="team-avatar">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(m.name)}&backgroundColor=8b1a1a&textColor=ffffff" alt="${m.name}" loading="lazy">
+        </div>
+        <h3>${m.name}</h3>
+        <div class="title">${m.title}</div>
+        <div class="bio">${m.bio}</div>`;
+      teamGrid.appendChild(card);
+    });
+
+    // ── Contact Form ──
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      document.getElementById('formFields').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+
+    // ── Mobile Nav ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // ── Active nav link on scroll ──
+    const sections = document.querySelectorAll('section');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+
+    function updateActiveLink() {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navAnchors.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    }
+
+    // ── Scroll Reveal ──
+    function revealOnScroll() {
+      document.querySelectorAll('.reveal').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.88) {
+          el.classList.add('visible');
+        }
+      });
+      animateChart();
+    }
+
+    window.addEventListener('scroll', () => {
+      updateActiveLink();
+      revealOnScroll();
+    });
+
+    // Initial calls
+    revealOnScroll();
+    updateActiveLink();
+  </script>
+</body>
+</html>
