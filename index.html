@@ -1,67 +1,221 @@
  (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/index.html b/index.html
-new file mode 100644
-index 0000000000000000000000000000000000000000..5591b5c86cb9de951d8a15956317fa43c6b930dc
---- /dev/null
+index b5c1710945d7786caa0b033a99b6b80b99c5d287..a9c308678a35fee88b54ed2d71c1c6e932bf02af 100644
+--- a/index.html
 +++ b/index.html
-@@ -0,0 +1,60 @@
+@@ -1,70 +1,145 @@
+- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+-diff --git a/index.html b/index.html
+-new file mode 100644
+-index 0000000000000000000000000000000000000000..5591b5c86cb9de951d8a15956317fa43c6b930dc
+---- /dev/null
+-+++ b/index.html
+-@@ -0,0 +1,60 @@
+-+<!DOCTYPE html>
+-+<html lang="en">
+-+  <head>
+-+    <meta charset="UTF-8" />
+-+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-+    <title>Modern Landing Page</title>
+-+    <link rel="stylesheet" href="styles.css" />
+-+  </head>
+-+  <body>
+-+    <header class="site-header">
+-+      <nav class="navbar" aria-label="Primary navigation">
+-+        <a class="brand" href="#home">BrightStart</a>
+-+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+-+          ☰
+-+        </button>
+-+        <ul class="nav-links">
+-+          <li><a href="#home">Home</a></li>
+-+          <li><a href="#features">Features</a></li>
+-+          <li><a href="#about">About</a></li>
+-+          <li><a href="#contact">Contact</a></li>
+-+        </ul>
+-+      </nav>
+-+    </header>
+-+
+-+    <main>
+-+      <section id="home" class="hero" aria-labelledby="hero-title">
+-+        <div class="hero-content">
+-+          <h1 id="hero-title">Build faster with confidence</h1>
+-+          <p>
+-+            BrightStart helps teams launch polished products quickly with clean workflows and
+-+            thoughtful tooling.
+-+          </p>
+-+          <a class="cta-button" href="#features">Explore Features</a>
+-+        </div>
+-+      </section>
+-+
+-+      <section id="features" class="features" aria-labelledby="features-title">
+-+        <h2 id="features-title">Why teams choose BrightStart</h2>
+-+        <div class="feature-grid">
+-+          <article class="feature-card">
+-+            <h3>Fast setup</h3>
+-+            <p>Get from idea to implementation in minutes with an intuitive onboarding flow.</p>
+-+          </article>
+-+          <article class="feature-card">
+-+            <h3>Collaborative by design</h3>
+-+            <p>Keep everyone aligned with clear milestones, updates, and shared context.</p>
+-+          </article>
+-+          <article class="feature-card">
+-+            <h3>Reliable performance</h3>
+-+            <p>Deliver smooth user experiences at scale with modern best practices built in.</p>
+-+          </article>
+-+        </div>
+-+      </section>
+-+    </main>
+-+
+-+    <footer id="contact" class="site-footer">
+-+      <p>&copy; 2026 BrightStart. All rights reserved.</p>
+-+    </footer>
+-+  </body>
+-+</html>
+- 
+-EOF
+-)
 +<!DOCTYPE html>
 +<html lang="en">
 +  <head>
 +    <meta charset="UTF-8" />
 +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+    <title>Modern Landing Page</title>
++    <title>Vanguard FP&A Landing Page</title>
 +    <link rel="stylesheet" href="styles.css" />
 +  </head>
 +  <body>
 +    <header class="site-header">
-+      <nav class="navbar" aria-label="Primary navigation">
-+        <a class="brand" href="#home">BrightStart</a>
-+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-+          ☰
-+        </button>
++      <nav class="navbar" aria-label="Primary">
++        <a class="brand" href="#overview">Vanguard FP&amp;A</a>
 +        <ul class="nav-links">
-+          <li><a href="#home">Home</a></li>
-+          <li><a href="#features">Features</a></li>
-+          <li><a href="#about">About</a></li>
-+          <li><a href="#contact">Contact</a></li>
++          <li><a href="#overview">Overview</a></li>
++          <li><a href="#planning">Planning</a></li>
++          <li><a href="#forecasting">Forecasting</a></li>
++          <li><a href="#performance">Performance</a></li>
++          <li><a href="#governance">Governance</a></li>
++          <li><a href="#team">Team Model</a></li>
 +        </ul>
 +      </nav>
 +    </header>
 +
 +    <main>
-+      <section id="home" class="hero" aria-labelledby="hero-title">
-+        <div class="hero-content">
-+          <h1 id="hero-title">Build faster with confidence</h1>
-+          <p>
-+            BrightStart helps teams launch polished products quickly with clean workflows and
-+            thoughtful tooling.
++      <section id="overview" class="hero" aria-labelledby="hero-title">
++        <div class="container">
++          <p class="eyebrow">Financial Planning &amp; Analysis</p>
++          <h1 id="hero-title">How FP&amp;A Drives Vanguard Strategy, Performance, and Accountability</h1>
++          <p class="lead">
++            Vanguard FP&amp;A connects enterprise strategy to day-to-day decisions through long-range planning,
++            annual budgeting, rolling forecasts, capital allocation, and executive performance insights.
++            This landing page summarizes the end-to-end operating model used to guide growth, control risk,
++            and sustain client value.
 +          </p>
-+          <a class="cta-button" href="#features">Explore Features</a>
 +        </div>
 +      </section>
 +
-+      <section id="features" class="features" aria-labelledby="features-title">
-+        <h2 id="features-title">Why teams choose BrightStart</h2>
-+        <div class="feature-grid">
-+          <article class="feature-card">
-+            <h3>Fast setup</h3>
-+            <p>Get from idea to implementation in minutes with an intuitive onboarding flow.</p>
-+          </article>
-+          <article class="feature-card">
-+            <h3>Collaborative by design</h3>
-+            <p>Keep everyone aligned with clear milestones, updates, and shared context.</p>
-+          </article>
-+          <article class="feature-card">
-+            <h3>Reliable performance</h3>
-+            <p>Deliver smooth user experiences at scale with modern best practices built in.</p>
-+          </article>
++      <section id="planning" class="section" aria-labelledby="planning-title">
++        <div class="container">
++          <h2 id="planning-title">1) Strategic &amp; Annual Planning</h2>
++          <div class="grid two-col">
++            <article class="card">
++              <h3>Long-Range Plan (LRP)</h3>
++              <p>Translates Vanguard's multi-year objectives into revenue, expense, headcount, and investment targets by business line.</p>
++            </article>
++            <article class="card">
++              <h3>Annual Operating Plan</h3>
++              <p>Builds a one-year budget with quarterly phasing, aligned to strategic priorities, cost discipline, and capacity assumptions.</p>
++            </article>
++            <article class="card">
++              <h3>Resource Prioritization</h3>
++              <p>Ranks initiatives by client impact, expected returns, regulatory needs, and execution risk to ensure disciplined spend.</p>
++            </article>
++            <article class="card">
++              <h3>Scenario Design</h3>
++              <p>Assesses market and business uncertainty through base, upside, and downside scenarios to improve resilience.</p>
++            </article>
++          </div>
++        </div>
++      </section>
++
++      <section id="forecasting" class="section alt" aria-labelledby="forecasting-title">
++        <div class="container">
++          <h2 id="forecasting-title">2) Forecasting &amp; Driver-Based Insights</h2>
++          <div class="grid three-col">
++            <article class="card">
++              <h3>Rolling Forecasts</h3>
++              <p>Monthly or quarterly reforecasts update full-year outlooks for assets, flows, margins, and expense trajectories.</p>
++            </article>
++            <article class="card">
++              <h3>Key Business Drivers</h3>
++              <p>Forecasts are anchored on actionable drivers such as market levels, client behavior, pricing, staffing, and productivity.</p>
++            </article>
++            <article class="card">
++              <h3>Variance Intelligence</h3>
++              <p>FP&amp;A explains plan-versus-actual and forecast-versus-plan variances with clear root causes and actions.</p>
++            </article>
++          </div>
++        </div>
++      </section>
++
++      <section id="performance" class="section" aria-labelledby="performance-title">
++        <div class="container">
++          <h2 id="performance-title">3) Performance Management &amp; Executive Reporting</h2>
++          <div class="grid two-col">
++            <article class="card">
++              <h3>KPI Framework</h3>
++              <p>Tracks financial and operating indicators across growth, efficiency, service quality, and risk outcomes.</p>
++            </article>
++            <article class="card">
++              <h3>Leadership Reviews</h3>
++              <p>Produces concise monthly business reviews and board-ready materials with trends, implications, and decisions required.</p>
++            </article>
++            <article class="card">
++              <h3>Action Tracking</h3>
++              <p>Monitors commitments from review forums and quantifies expected impact to maintain execution accountability.</p>
++            </article>
++            <article class="card">
++              <h3>Benchmarking</h3>
++              <p>Compares key metrics versus internal targets and external peers to support continuous performance improvement.</p>
++            </article>
++          </div>
++        </div>
++      </section>
++
++      <section id="governance" class="section alt" aria-labelledby="governance-title">
++        <div class="container">
++          <h2 id="governance-title">4) Governance, Risk, and Capital Discipline</h2>
++          <div class="grid three-col">
++            <article class="card">
++              <h3>Investment Governance</h3>
++              <p>Applies stage-gate and business-case standards to evaluate strategic programs and technology investments.</p>
++            </article>
++            <article class="card">
++              <h3>Controls &amp; Compliance</h3>
++              <p>Maintains robust financial controls, transparent assumptions, and clear audit trails across planning cycles.</p>
++            </article>
++            <article class="card">
++              <h3>Balance of Growth &amp; Cost</h3>
++              <p>Supports decisions that protect long-term client value while managing near-term operating leverage.</p>
++            </article>
++          </div>
++        </div>
++      </section>
++
++      <section id="team" class="section" aria-labelledby="team-title">
++        <div class="container">
++          <h2 id="team-title">5) FP&amp;A Team Model &amp; Operating Rhythm</h2>
++          <ul class="timeline">
++            <li><strong>Business FP&amp;A Partners:</strong> Embed with divisions, own planning narratives, and challenge assumptions.</li>
++            <li><strong>Corporate FP&amp;A:</strong> Consolidate enterprise views, align standards, and advise executive leadership.</li>
++            <li><strong>Analytics &amp; Systems:</strong> Enable data quality, dashboards, automation, and forecasting model performance.</li>
++            <li><strong>Monthly Cadence:</strong> Close, analyze, reforecast, review, and prioritize actions in one integrated rhythm.</li>
++          </ul>
 +        </div>
 +      </section>
 +    </main>
 +
-+    <footer id="contact" class="site-footer">
-+      <p>&copy; 2026 BrightStart. All rights reserved.</p>
++    <footer class="site-footer">
++      <div class="container">
++        <p>Vanguard FP&amp;A landing page — structured overview of planning, forecasting, performance management, and governance.</p>
++      </div>
 +    </footer>
 +  </body>
 +</html>
