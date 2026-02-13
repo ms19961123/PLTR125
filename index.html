@@ -1,1087 +1,568 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/index.html b/index.html
-index 0014ea2a7e8ff3875f33749fdb49774337960085..2cd32bdd30bfafcdf18fe1c5f37143705ec464d8 100644
---- a/index.html
-+++ b/index.html
-@@ -1,951 +1,139 @@
- <!DOCTYPE html>
- <html lang="en">
--<head>
--  <meta charset="UTF-8">
--  <meta name="viewport" content="width=device-width, initial-scale=1.0">
--  <title>Vanguard FP&A Group</title>
--  <style>
--    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
--
--    :root {
--      --primary: #8b1a1a;
--      --primary-dark: #6b1010;
--      --accent: #c4a35a;
--      --bg: #f8f7f4;
--      --card-bg: #ffffff;
--      --text: #2c2c2c;
--      --text-light: #5a5a5a;
--      --border: #e8e4de;
--      --shadow: 0 2px 12px rgba(0,0,0,0.08);
--      --shadow-hover: 0 6px 24px rgba(0,0,0,0.12);
--      --radius: 10px;
--      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
--    }
--
--    html { scroll-behavior: smooth; }
--
--    body {
--      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
--      background: var(--bg);
--      color: var(--text);
--      line-height: 1.6;
--    }
--
--    /* ── Navigation ── */
--    nav {
--      position: fixed;
--      top: 0;
--      left: 0;
--      right: 0;
--      z-index: 100;
--      background: var(--primary);
--      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
--      transition: background var(--transition);
--    }
--
--    .nav-inner {
--      max-width: 1200px;
--      margin: 0 auto;
--      display: flex;
--      align-items: center;
--      justify-content: space-between;
--      padding: 0 24px;
--      height: 64px;
--    }
--
--    .nav-logo {
--      font-size: 1.25rem;
--      font-weight: 700;
--      color: #fff;
--      letter-spacing: 0.5px;
--      display: flex;
--      align-items: center;
--      gap: 10px;
--    }
--
--    .nav-logo span { color: var(--accent); }
--
--    .nav-links {
--      list-style: none;
--      display: flex;
--      gap: 8px;
--    }
--
--    .nav-links a {
--      color: rgba(255,255,255,0.85);
--      text-decoration: none;
--      font-size: 0.95rem;
--      font-weight: 500;
--      padding: 8px 16px;
--      border-radius: 6px;
--      transition: all var(--transition);
--    }
--
--    .nav-links a:hover,
--    .nav-links a.active {
--      background: rgba(255,255,255,0.15);
--      color: #fff;
--    }
--
--    .hamburger {
--      display: none;
--      flex-direction: column;
--      gap: 5px;
--      background: none;
--      border: none;
--      cursor: pointer;
--      padding: 4px;
--    }
--
--    .hamburger span {
--      display: block;
--      width: 24px;
--      height: 2px;
--      background: #fff;
--      border-radius: 2px;
--      transition: all var(--transition);
--    }
--
--    /* ── Hero ── */
--    .hero {
--      min-height: 520px;
--      display: flex;
--      align-items: center;
--      justify-content: center;
--      text-align: center;
--      padding: 120px 24px 80px;
--      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
--      position: relative;
--      overflow: hidden;
--    }
--
--    .hero::before {
--      content: '';
--      position: absolute;
--      inset: 0;
--      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
--    }
--
--    .hero-content { position: relative; z-index: 1; max-width: 720px; }
--
--    .hero h1 {
--      font-size: clamp(2rem, 5vw, 3.25rem);
--      font-weight: 800;
--      color: #fff;
--      margin-bottom: 16px;
--      line-height: 1.15;
--    }
--
--    .hero h1 span { color: var(--accent); }
--
--    .hero p {
--      font-size: 1.15rem;
--      color: rgba(255,255,255,0.8);
--      max-width: 560px;
--      margin: 0 auto 32px;
--    }
--
--    .hero-btn {
--      display: inline-block;
--      padding: 14px 36px;
--      background: var(--accent);
--      color: var(--primary-dark);
--      font-weight: 700;
--      font-size: 1rem;
--      border: none;
--      border-radius: 50px;
--      text-decoration: none;
--      cursor: pointer;
--      transition: all var(--transition);
--    }
--
--    .hero-btn:hover {
--      transform: translateY(-2px);
--      box-shadow: 0 8px 24px rgba(196,163,90,0.35);
--    }
--
--    /* ── Section shared ── */
--    section { padding: 80px 24px; }
--
--    .section-header {
--      text-align: center;
--      margin-bottom: 48px;
--    }
--
--    .section-header h2 {
--      font-size: 2rem;
--      font-weight: 700;
--      color: var(--primary);
--      margin-bottom: 12px;
--    }
--
--    .section-header p {
--      font-size: 1.05rem;
--      color: var(--text-light);
--      max-width: 580px;
--      margin: 0 auto;
--    }
--
--    .section-divider {
--      width: 48px;
--      height: 3px;
--      background: var(--accent);
--      border-radius: 2px;
--      margin: 16px auto 0;
--    }
--
--    .container { max-width: 1100px; margin: 0 auto; }
--
--    /* ── Responsibilities ── */
--    #responsibilities { background: #fff; }
--
--    .accordion { display: grid; gap: 12px; }
--
--    .accordion-item {
--      background: var(--bg);
--      border-radius: var(--radius);
--      overflow: hidden;
--      border: 1px solid var(--border);
--      transition: box-shadow var(--transition);
--    }
--
--    .accordion-item:hover { box-shadow: var(--shadow); }
--
--    .accordion-btn {
--      width: 100%;
--      display: flex;
--      align-items: center;
--      justify-content: space-between;
--      padding: 18px 24px;
--      background: none;
--      border: none;
--      font-size: 1.05rem;
--      font-weight: 600;
--      color: var(--text);
--      cursor: pointer;
--      text-align: left;
--      transition: color var(--transition);
--    }
--
--    .accordion-btn:hover { color: var(--primary); }
--
--    .accordion-btn .icon-wrap {
--      display: flex;
--      align-items: center;
--      gap: 14px;
--    }
--
--    .accordion-btn .acc-icon {
--      width: 36px;
--      height: 36px;
--      border-radius: 8px;
--      background: var(--primary);
--      color: #fff;
--      display: flex;
--      align-items: center;
--      justify-content: center;
--      font-size: 1.1rem;
--      flex-shrink: 0;
--    }
--
--    .accordion-btn .chevron {
--      transition: transform var(--transition);
--      font-size: 1.2rem;
--      color: var(--text-light);
--    }
--
--    .accordion-item.open .chevron { transform: rotate(180deg); }
--
--    .accordion-body {
--      max-height: 0;
--      overflow: hidden;
--      transition: max-height 0.4s ease;
--    }
--
--    .accordion-body-inner {
--      padding: 0 24px 20px 74px;
--      color: var(--text-light);
--      font-size: 0.95rem;
--      line-height: 1.7;
--    }
--
--    /* ── Chart ── */
--    #trends { background: var(--bg); }
--
--    .chart-container {
--      background: #fff;
--      border-radius: var(--radius);
--      padding: 32px;
--      box-shadow: var(--shadow);
--    }
--
--    .chart-wrapper {
--      display: flex;
--      align-items: flex-end;
--      gap: 16px;
--      height: 300px;
--      padding-top: 20px;
--      border-bottom: 2px solid var(--border);
--      position: relative;
--    }
--
--    .chart-bar-group {
--      flex: 1;
--      display: flex;
--      flex-direction: column;
--      align-items: center;
--      gap: 8px;
--      height: 100%;
--      justify-content: flex-end;
--    }
--
--    .bar-pair {
--      display: flex;
--      gap: 6px;
--      align-items: flex-end;
--      width: 100%;
--      justify-content: center;
--    }
--
--    .bar {
--      width: 32px;
--      border-radius: 6px 6px 0 0;
--      transition: height 1s ease, opacity 0.5s ease;
--      position: relative;
--      cursor: pointer;
--      opacity: 0;
--    }
--
--    .bar.revenue { background: var(--primary); }
--    .bar.expenses { background: var(--accent); }
--
--    .bar:hover { filter: brightness(1.15); }
--
--    .bar-tooltip {
--      position: absolute;
--      top: -32px;
--      left: 50%;
--      transform: translateX(-50%);
--      background: var(--text);
--      color: #fff;
--      padding: 4px 10px;
--      border-radius: 4px;
--      font-size: 0.75rem;
--      white-space: nowrap;
--      opacity: 0;
--      pointer-events: none;
--      transition: opacity var(--transition);
--    }
--
--    .bar:hover .bar-tooltip { opacity: 1; }
--
--    .bar-label {
--      font-size: 0.8rem;
--      color: var(--text-light);
--      font-weight: 500;
--    }
--
--    .chart-legend {
--      display: flex;
--      gap: 24px;
--      justify-content: center;
--      margin-top: 20px;
--    }
--
--    .legend-item {
--      display: flex;
--      align-items: center;
--      gap: 8px;
--      font-size: 0.9rem;
--      color: var(--text-light);
--    }
--
--    .legend-dot {
--      width: 12px;
--      height: 12px;
--      border-radius: 3px;
--    }
--
--    .y-axis {
--      position: absolute;
--      left: -40px;
--      top: 0;
--      bottom: 0;
--      display: flex;
--      flex-direction: column;
--      justify-content: space-between;
--      font-size: 0.7rem;
--      color: var(--text-light);
--    }
--
--    /* ── Team ── */
--    #team { background: #fff; }
--
--    .team-grid {
--      display: grid;
--      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
--      gap: 24px;
--    }
--
--    .team-card {
--      background: var(--bg);
--      border-radius: var(--radius);
--      padding: 32px 24px;
--      text-align: center;
--      border: 1px solid var(--border);
--      transition: all var(--transition);
--    }
--
--    .team-card:hover {
--      transform: translateY(-6px);
--      box-shadow: var(--shadow-hover);
--    }
--
--    .team-avatar {
--      width: 96px;
--      height: 96px;
--      border-radius: 50%;
--      background: var(--primary);
--      margin: 0 auto 16px;
--      display: flex;
--      align-items: center;
--      justify-content: center;
--      font-size: 2rem;
--      color: #fff;
--      font-weight: 700;
--      overflow: hidden;
--    }
--
--    .team-avatar img {
--      width: 100%;
--      height: 100%;
--      object-fit: cover;
--    }
--
--    .team-card h3 {
--      font-size: 1.1rem;
--      font-weight: 600;
--      margin-bottom: 4px;
--    }
--
--    .team-card .title {
--      font-size: 0.9rem;
--      color: var(--primary);
--      font-weight: 500;
--      margin-bottom: 8px;
--    }
--
--    .team-card .bio {
--      font-size: 0.85rem;
--      color: var(--text-light);
--      line-height: 1.5;
--    }
--
--    /* ── Contact ── */
--    #contact { background: var(--bg); }
--
--    .contact-wrapper {
--      display: grid;
--      grid-template-columns: 1fr 1fr;
--      gap: 48px;
--      align-items: start;
--    }
--
--    .contact-info h3 {
--      font-size: 1.3rem;
--      font-weight: 700;
--      margin-bottom: 16px;
--      color: var(--primary);
--    }
--
--    .contact-info p {
--      color: var(--text-light);
--      margin-bottom: 24px;
--      line-height: 1.7;
--    }
--
--    .contact-detail {
--      display: flex;
--      align-items: center;
--      gap: 12px;
--      margin-bottom: 16px;
--      font-size: 0.95rem;
--      color: var(--text);
--    }
--
--    .contact-detail .detail-icon {
--      width: 40px;
--      height: 40px;
--      border-radius: 8px;
--      background: var(--primary);
--      color: #fff;
--      display: flex;
--      align-items: center;
--      justify-content: center;
--      font-size: 1rem;
--      flex-shrink: 0;
--    }
--
--    .contact-form {
--      background: #fff;
--      padding: 32px;
--      border-radius: var(--radius);
--      box-shadow: var(--shadow);
--    }
--
--    .form-group { margin-bottom: 20px; }
--
--    .form-group label {
--      display: block;
--      font-size: 0.9rem;
--      font-weight: 600;
--      margin-bottom: 6px;
--      color: var(--text);
--    }
--
--    .form-group input,
--    .form-group textarea {
--      width: 100%;
--      padding: 12px 16px;
--      border: 1px solid var(--border);
--      border-radius: 8px;
--      font-size: 0.95rem;
--      font-family: inherit;
--      background: var(--bg);
--      color: var(--text);
--      transition: all var(--transition);
--      outline: none;
--    }
--
--    .form-group input:focus,
--    .form-group textarea:focus {
--      border-color: var(--primary);
--      box-shadow: 0 0 0 3px rgba(139,26,26,0.1);
--    }
--
--    .form-group textarea { resize: vertical; min-height: 120px; }
--
--    .submit-btn {
--      width: 100%;
--      padding: 14px;
--      background: var(--primary);
--      color: #fff;
--      border: none;
--      border-radius: 8px;
--      font-size: 1rem;
--      font-weight: 600;
--      cursor: pointer;
--      transition: all var(--transition);
--    }
--
--    .submit-btn:hover {
--      background: var(--primary-dark);
--      transform: translateY(-1px);
--      box-shadow: 0 4px 12px rgba(139,26,26,0.25);
--    }
--
--    .form-success {
--      display: none;
--      text-align: center;
--      padding: 32px;
--      color: var(--primary);
--    }
--
--    .form-success svg { margin-bottom: 12px; }
--
--    /* ── Footer ── */
--    footer {
--      background: var(--primary-dark);
--      color: rgba(255,255,255,0.7);
--      text-align: center;
--      padding: 32px 24px;
--      font-size: 0.9rem;
--    }
--
--    footer a { color: var(--accent); text-decoration: none; }
--
--    /* ── Scroll-reveal ── */
--    .reveal {
--      opacity: 0;
--      transform: translateY(30px);
--      transition: opacity 0.6s ease, transform 0.6s ease;
--    }
--
--    .reveal.visible {
--      opacity: 1;
--      transform: translateY(0);
--    }
--
--    /* ── Mobile ── */
--    @media (max-width: 768px) {
--      .hamburger { display: flex; }
--
--      .nav-links {
--        position: fixed;
--        top: 64px;
--        left: 0;
--        right: 0;
--        background: var(--primary-dark);
--        flex-direction: column;
--        padding: 16px;
--        gap: 4px;
--        transform: translateY(-110%);
--        transition: transform var(--transition);
--      }
--
--      .nav-links.open { transform: translateY(0); }
--
--      .nav-links a {
--        display: block;
--        padding: 12px 16px;
--        border-radius: 8px;
--      }
--
--      .contact-wrapper {
--        grid-template-columns: 1fr;
--        gap: 32px;
--      }
--
--      .chart-wrapper { height: 220px; }
--
--      .bar { width: 22px; }
--
--      section { padding: 60px 16px; }
--
--      .y-axis { left: -30px; font-size: 0.6rem; }
--    }
--
--    @media (max-width: 480px) {
--      .bar { width: 16px; }
--      .chart-wrapper { gap: 8px; }
--    }
--  </style>
--</head>
--<body>
--
--  <!-- Navigation -->
--  <nav id="navbar">
--    <div class="nav-inner">
--      <div class="nav-logo">
--        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
--          <rect width="28" height="28" rx="6" fill="#c4a35a"/>
--          <path d="M7 20V8l7 6 7-6v12" stroke="#6b1010" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
--        </svg>
--        Vanguard <span>FP&A</span>
--      </div>
--      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
--        <span></span><span></span><span></span>
--      </button>
--      <ul class="nav-links" id="navLinks">
--        <li><a href="#home" class="active">Home</a></li>
--        <li><a href="#responsibilities">Responsibilities</a></li>
--        <li><a href="#trends">Trends</a></li>
--        <li><a href="#team">Team</a></li>
--        <li><a href="#contact">Contact</a></li>
--      </ul>
--    </div>
--  </nav>
--
--  <!-- Hero -->
--  <section class="hero" id="home">
--    <div class="hero-content">
--      <h1>Financial Planning <span>&</span> Analysis</h1>
--      <p>Driving strategic decisions through data-driven insights, rigorous financial modeling, and cross-functional business partnership.</p>
--      <a href="#responsibilities" class="hero-btn">Explore Our Work</a>
--    </div>
--  </section>
--
--  <!-- Responsibilities -->
--  <section id="responsibilities">
--    <div class="container">
--      <div class="section-header reveal">
--        <h2>Our Responsibilities</h2>
--        <p>Core capabilities that power Vanguard's financial strategy and operational excellence.</p>
--        <div class="section-divider"></div>
--      </div>
--      <div class="accordion reveal" id="accordion"></div>
--    </div>
--  </section>
--
--  <!-- Financial Trends Chart -->
--  <section id="trends">
--    <div class="container">
--      <div class="section-header reveal">
--        <h2>Financial Trends</h2>
--        <p>Year-over-year revenue and expense analysis across fiscal quarters.</p>
--        <div class="section-divider"></div>
--      </div>
--      <div class="chart-container reveal">
--        <div class="chart-wrapper" id="chartWrapper" style="margin-left: 48px;"></div>
--        <div class="chart-legend">
--          <div class="legend-item">
--            <div class="legend-dot" style="background:var(--primary)"></div>
--            Revenue ($M)
--          </div>
--          <div class="legend-item">
--            <div class="legend-dot" style="background:var(--accent)"></div>
--            Expenses ($M)
--          </div>
--        </div>
--      </div>
--    </div>
--  </section>
--
--  <!-- Team -->
--  <section id="team">
--    <div class="container">
--      <div class="section-header reveal">
--        <h2>Meet the Team</h2>
--        <p>Experienced professionals dedicated to delivering actionable financial intelligence.</p>
--        <div class="section-divider"></div>
--      </div>
--      <div class="team-grid reveal" id="teamGrid"></div>
--    </div>
--  </section>
--
--  <!-- Contact -->
--  <section id="contact">
--    <div class="container">
--      <div class="section-header reveal">
--        <h2>Get in Touch</h2>
--        <p>Have a question or need FP&A support? We'd love to hear from you.</p>
--        <div class="section-divider"></div>
--      </div>
--      <div class="contact-wrapper reveal">
--        <div class="contact-info">
--          <h3>Let's Connect</h3>
--          <p>Whether you need budget guidance, forecast support, or strategic analysis, our team is here to help drive your business forward.</p>
--          <div class="contact-detail">
--            <div class="detail-icon">&#9993;</div>
--            <div>fpa@vanguard.com</div>
--          </div>
--          <div class="contact-detail">
--            <div class="detail-icon">&#9742;</div>
--            <div>(610) 669-1000</div>
--          </div>
--          <div class="contact-detail">
--            <div class="detail-icon">&#9873;</div>
--            <div>100 Vanguard Blvd, Malvern, PA 19355</div>
--          </div>
-+  <head>
-+    <meta charset="UTF-8" />
-+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+    <title>Palantir Investment Thesis | Path to $125</title>
-+    <link rel="preconnect" href="https://fonts.googleapis.com" />
-+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-+    <link
-+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-+      rel="stylesheet"
-+    />
-+    <link rel="stylesheet" href="styles.css" />
-+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
-+    <script src="script.js" defer></script>
-+  </head>
-+  <body>
-+    <header class="site-header">
-+      <nav class="nav container">
-+        <a href="#top" class="logo">Palantir <span>Research Deck</span></a>
-+        <ul class="nav-links">
-+          <li><a href="#background">Background</a></li>
-+          <li><a href="#stock">Stock History</a></li>
-+          <li><a href="#target">$125 Target</a></li>
-+        </ul>
-+      </nav>
-+    </header>
-+
-+    <main id="top">
-+      <section class="hero">
-+        <div class="container hero-content">
-+          <p class="eyebrow">Data-Driven Equity Thesis</p>
-+          <h1>Palantir Technologies: Alex Karp's AI Platform Flywheel</h1>
-+          <p>
-+            Palantir (PLTR), led by CEO Alex Karp, has evolved from a government-focused analytics provider into an
-+            enterprise AI operating system company. This page combines real market data, historical context, and valuation
-+            logic to evaluate why <strong>$125/share</strong> is a realistic medium-term target.
-+          </p>
-+          <a class="cta" href="#target">See the valuation case</a>
-         </div>
--        <form class="contact-form" id="contactForm">
--          <div id="formFields">
--            <div class="form-group">
--              <label for="name">Full Name</label>
--              <input type="text" id="name" placeholder="Jane Smith" required>
--            </div>
--            <div class="form-group">
--              <label for="email">Email Address</label>
--              <input type="email" id="email" placeholder="jane.smith@vanguard.com" required>
-+      </section>
-+
-+      <section id="background" class="section container reveal">
-+        <h2>Company Background & Strategic Position</h2>
-+        <div class="grid-two">
-+          <article class="card">
-+            <h3>What Palantir does</h3>
-+            <p>
-+              Palantir's core platforms (Gotham, Foundry, and AIP) unify fragmented data, model operational workflows, and
-+              deploy AI agents in mission-critical environments. The platform architecture creates high switching costs and
-+              sticky, multi-year deployments.
-+            </p>
-+            <ul>
-+              <li>Government: defense, intelligence, and public-sector operations.</li>
-+              <li>Commercial: manufacturing, healthcare, energy, and financial services.</li>
-+              <li>AIP: accelerated enterprise AI adoption with security/compliance controls.</li>
-+            </ul>
-+          </article>
-+          <article class="card">
-+            <h3>Why leadership matters</h3>
-+            <p>
-+              Alex Karp has emphasized durable software margins, disciplined hiring, and deep customer embedment rather than
-+              growth-at-any-cost. This leadership style has coincided with improving profitability and stronger free cash
-+              flow conversion.
-+            </p>
-+            <div class="stats">
-+              <div><span id="latestClose">--</span><small>Latest close (PLTR)</small></div>
-+              <div><span id="ytdReturn">--</span><small>Approx. 12M return</small></div>
-+              <div><span id="volatility">--</span><small>90D volatility</small></div>
-             </div>
--            <div class="form-group">
--              <label for="message">Message</label>
--              <textarea id="message" placeholder="How can we help you?" required></textarea>
-+          </article>
-+        </div>
-+      </section>
-+
-+      <section id="stock" class="section alt reveal">
-+        <div class="container">
-+          <h2>Historical Stock Price Analysis</h2>
-+          <p class="section-copy">
-+            Interactive charts below load PLTR daily history from a free public source (Stooq via AllOrigins). Explore long
-+            trend, drawdowns, and volume behavior.
-+          </p>
-+          <div class="chart-card">
-+            <div class="chart-controls">
-+              <label for="rangeSelect">Range</label>
-+              <select id="rangeSelect">
-+                <option value="1260">Max</option>
-+                <option value="756">3Y</option>
-+                <option value="252" selected>1Y</option>
-+                <option value="126">6M</option>
-+              </select>
-             </div>
--            <button type="submit" class="submit-btn">Send Message</button>
--          </div>
--          <div class="form-success" id="formSuccess">
--            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
--              <circle cx="24" cy="24" r="24" fill="#8b1a1a" opacity="0.1"/>
--              <path d="M15 25l6 6 12-14" stroke="#8b1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
--            </svg>
--            <h3 style="margin-bottom:8px">Message Sent!</h3>
--            <p style="color:var(--text-light);font-size:0.95rem">Thank you for reaching out. Our team will get back to you shortly.</p>
--          </div>
--        </form>
--      </div>
--    </div>
--  </section>
--
--  <!-- Footer -->
--  <footer>
--    &copy; 2026 Vanguard Financial Planning & Analysis. Built with purpose.
--  </footer>
--
--  <script>
--    // ── Data ──
--    const responsibilities = [
--      { icon: '&#36;', title: 'Budgeting', body: 'Develop and manage annual operating and capital budgets across all business units. Coordinate cross-departmental budget reviews, track allocations against strategic priorities, and ensure fiscal discipline organization-wide.' },
--      { icon: '&#9783;', title: 'Forecasting', body: 'Produce rolling financial forecasts using statistical models and scenario planning. Incorporate macroeconomic indicators, market trends, and operational drivers to deliver reliable projections that guide executive decision-making.' },
--      { icon: '&#9733;', title: 'Strategic Planning', body: 'Partner with senior leadership on long-range financial planning, M&A evaluation, and capital allocation strategy. Translate corporate objectives into actionable financial roadmaps with clear milestones and KPIs.' },
--      { icon: '&#916;', title: 'Variance Analysis', body: 'Perform detailed actual-vs-budget and actual-vs-forecast variance analysis. Identify root causes of financial deviations, quantify their business impact, and recommend corrective actions to keep performance on track.' },
--      { icon: '&#120031;', title: 'Financial Modeling', body: 'Build and maintain sophisticated financial models for valuation, sensitivity analysis, and scenario planning. Support investment decisions, pricing strategies, and new product launches with robust quantitative frameworks.' },
--      { icon: '&#9632;', title: 'Dashboards & Reporting', body: 'Design interactive dashboards and automated reporting solutions that provide real-time visibility into financial KPIs. Empower stakeholders with self-service analytics and actionable insights.' },
--      { icon: '&#9829;', title: 'Business Partnering', body: 'Serve as trusted financial advisors embedded within business units. Provide proactive insights, challenge assumptions, and help operational leaders make data-driven decisions aligned with company strategy.' }
--    ];
--
--    const chartData = [
--      { label: 'Q1 2024', revenue: 142, expenses: 118 },
--      { label: 'Q2 2024', revenue: 158, expenses: 125 },
--      { label: 'Q3 2024', revenue: 149, expenses: 121 },
--      { label: 'Q4 2024', revenue: 172, expenses: 134 },
--      { label: 'Q1 2025', revenue: 165, expenses: 129 },
--      { label: 'Q2 2025', revenue: 183, expenses: 138 },
--      { label: 'Q3 2025', revenue: 178, expenses: 142 },
--      { label: 'Q4 2025', revenue: 196, expenses: 148 }
--    ];
--
--    const teamMembers = [
--      { name: 'Sarah Mitchell', title: 'VP, Financial Planning & Analysis', initials: 'SM', bio: 'Leads enterprise-wide FP&A strategy with 15+ years in corporate finance.' },
--      { name: 'David Chen', title: 'Senior Financial Analyst', initials: 'DC', bio: 'Specializes in advanced financial modeling and scenario-based forecasting.' },
--      { name: 'Rachel Thompson', title: 'Budget Manager', initials: 'RT', bio: 'Oversees annual budgeting processes and cross-functional coordination.' },
--      { name: 'Marcus Johnson', title: 'Business Intelligence Lead', initials: 'MJ', bio: 'Designs executive dashboards and drives data analytics initiatives.' },
--      { name: 'Priya Patel', title: 'Strategic Planning Analyst', initials: 'PP', bio: 'Partners with leadership on long-range planning and capital allocation.' },
--      { name: 'James Rivera', title: 'FP&A Associate', initials: 'JR', bio: 'Supports variance analysis, reporting automation, and ad-hoc analysis.' }
--    ];
--
--    // ── Build Accordion ──
--    const accordionEl = document.getElementById('accordion');
--    responsibilities.forEach((item, i) => {
--      const div = document.createElement('div');
--      div.className = 'accordion-item';
--      div.innerHTML = `
--        <button class="accordion-btn" aria-expanded="false">
--          <span class="icon-wrap">
--            <span class="acc-icon">${item.icon}</span>
--            ${item.title}
--          </span>
--          <span class="chevron">&#9662;</span>
--        </button>
--        <div class="accordion-body">
--          <div class="accordion-body-inner">${item.body}</div>
--        </div>`;
--      accordionEl.appendChild(div);
--    });
--
--    document.querySelectorAll('.accordion-btn').forEach(btn => {
--      btn.addEventListener('click', () => {
--        const item = btn.parentElement;
--        const body = btn.nextElementSibling;
--        const isOpen = item.classList.contains('open');
--
--        document.querySelectorAll('.accordion-item').forEach(el => {
--          el.classList.remove('open');
--          el.querySelector('.accordion-body').style.maxHeight = null;
--          el.querySelector('.accordion-btn').setAttribute('aria-expanded', 'false');
--        });
--
--        if (!isOpen) {
--          item.classList.add('open');
--          body.style.maxHeight = body.scrollHeight + 'px';
--          btn.setAttribute('aria-expanded', 'true');
--        }
--      });
--    });
--
--    // ── Build Chart ──
--    const chartWrapper = document.getElementById('chartWrapper');
--    const maxVal = Math.max(...chartData.flatMap(d => [d.revenue, d.expenses]));
--
--    // Y-axis
--    const yAxis = document.createElement('div');
--    yAxis.className = 'y-axis';
--    for (let i = 0; i <= 4; i++) {
--      const label = document.createElement('span');
--      label.textContent = '$' + Math.round(maxVal - (maxVal / 4) * i) + 'M';
--      yAxis.appendChild(label);
--    }
--    chartWrapper.appendChild(yAxis);
--
--    chartData.forEach((d, i) => {
--      const group = document.createElement('div');
--      group.className = 'chart-bar-group';
--      const revH = (d.revenue / maxVal) * 100;
--      const expH = (d.expenses / maxVal) * 100;
--      group.innerHTML = `
--        <div class="bar-pair">
--          <div class="bar revenue" style="height:0%" data-height="${revH}">
--            <div class="bar-tooltip">$${d.revenue}M</div>
-+            <canvas id="priceChart" aria-label="PLTR historical price chart"></canvas>
-           </div>
--          <div class="bar expenses" style="height:0%" data-height="${expH}">
--            <div class="bar-tooltip">$${d.expenses}M</div>
-+          <div class="chart-card">
-+            <canvas id="volumeChart" aria-label="PLTR volume chart"></canvas>
-           </div>
-+          <p id="dataStatus" class="muted">Loading market data…</p>
-         </div>
--        <span class="bar-label">${d.label}</span>`;
--      chartWrapper.appendChild(group);
--    });
--
--    // Animate bars when visible
--    let chartAnimated = false;
--    function animateChart() {
--      if (chartAnimated) return;
--      const rect = chartWrapper.getBoundingClientRect();
--      if (rect.top < window.innerHeight * 0.85) {
--        chartAnimated = true;
--        document.querySelectorAll('.bar').forEach((bar, i) => {
--          setTimeout(() => {
--            bar.style.height = bar.dataset.height + '%';
--            bar.style.opacity = '1';
--          }, i * 80);
--        });
--      }
--    }
--
--    // ── Build Team ──
--    const teamGrid = document.getElementById('teamGrid');
--    teamMembers.forEach(m => {
--      const card = document.createElement('div');
--      card.className = 'team-card';
--      card.innerHTML = `
--        <div class="team-avatar">
--          <img src="https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(m.name)}&backgroundColor=8b1a1a&textColor=ffffff" alt="${m.name}" loading="lazy">
-+      </section>
-+
-+      <section id="target" class="section container reveal">
-+        <h2>Why $125 Is a Realistic Price Target</h2>
-+        <div class="grid-two">
-+          <article class="card">
-+            <h3>Fundamental argument</h3>
-+            <p>
-+              A $125 target is supportable under a continued AI adoption cycle where Palantir sustains premium growth,
-+              expands operating leverage, and compounds free cash flow. The valuation becomes reasonable if the market
-+              applies software-leader multiples to a business with defense-grade durability.
-+            </p>
-+            <ul>
-+              <li><strong>Growth:</strong> commercial expansion plus government backlog can sustain elevated revenue CAGR.</li>
-+              <li><strong>Margin profile:</strong> software gross margins and improved efficiency drive earnings torque.</li>
-+              <li><strong>Cash generation:</strong> strong FCF supports reinvestment and downside resilience.</li>
-+            </ul>
-+          </article>
-+          <article class="card">
-+            <h3>Scenario model</h3>
-+            <p>Adjust the forward revenue multiple to see an implied share value based on a simplified framework.</p>
-+            <label for="multipleSlider">Forward revenue multiple: <span id="multipleValue">24x</span></label>
-+            <input id="multipleSlider" type="range" min="14" max="30" step="1" value="24" />
-+            <div class="implied-price" id="impliedPrice">$125.00</div>
-+            <small>Assumptions: 2027 revenue = $8.5B, net cash adjustment, diluted shares = 2.3B.</small>
-+          </article>
-         </div>
--        <h3>${m.name}</h3>
--        <div class="title">${m.title}</div>
--        <div class="bio">${m.bio}</div>`;
--      teamGrid.appendChild(card);
--    });
- 
--    // ── Contact Form ──
--    document.getElementById('contactForm').addEventListener('submit', e => {
--      e.preventDefault();
--      document.getElementById('formFields').style.display = 'none';
--      document.getElementById('formSuccess').style.display = 'block';
--    });
--
--    // ── Mobile Nav ──
--    const hamburger = document.getElementById('hamburger');
--    const navLinks = document.getElementById('navLinks');
--    hamburger.addEventListener('click', () => {
--      navLinks.classList.toggle('open');
--    });
--
--    navLinks.querySelectorAll('a').forEach(a => {
--      a.addEventListener('click', () => navLinks.classList.remove('open'));
--    });
--
--    // ── Active nav link on scroll ──
--    const sections = document.querySelectorAll('section');
--    const navAnchors = document.querySelectorAll('.nav-links a');
--
--    function updateActiveLink() {
--      let current = '';
--      sections.forEach(s => {
--        if (window.scrollY >= s.offsetTop - 120) current = s.id;
--      });
--      navAnchors.forEach(a => {
--        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
--      });
--    }
--
--    // ── Scroll Reveal ──
--    function revealOnScroll() {
--      document.querySelectorAll('.reveal').forEach(el => {
--        if (el.getBoundingClientRect().top < window.innerHeight * 0.88) {
--          el.classList.add('visible');
--        }
--      });
--      animateChart();
--    }
--
--    window.addEventListener('scroll', () => {
--      updateActiveLink();
--      revealOnScroll();
--    });
-+        <div class="chart-card">
-+          <canvas id="comparisonChart" aria-label="Valuation comparison chart"></canvas>
-+        </div>
-+      </section>
-+    </main>
- 
--    // Initial calls
--    revealOnScroll();
--    updateActiveLink();
--  </script>
--</body>
-+    <footer class="footer">
-+      <div class="container">
-+        <p>Educational market analysis only — not financial advice.</p>
-+      </div>
-+    </footer>
-+  </body>
- </html>
- 
-EOF
-)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palantir Technologies | Deep Dive Analysis &amp; $125 Price Target</title>
+  <meta name="description" content="Comprehensive analysis of Palantir Technologies (PLTR) — background, historical stock data, and why $125 is a realistic price target.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">P</div>
+        <span>Palantir Analysis</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about">Background</a></li>
+        <li><a href="#stock">Stock Analysis</a></li>
+        <li><a href="#target">Price Target</a></li>
+      </ul>
+
+      <div class="nav-ticker" id="navTicker">
+        <span class="ticker-symbol">PLTR</span>
+        <span class="ticker-price" id="tickerPrice">--</span>
+        <span class="ticker-change" id="tickerChange">--</span>
+      </div>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          NYSE: PLTR
+        </div>
+        <h1>
+          The Future of<br>
+          <span class="gradient-text">Data Intelligence</span><br>
+          is <span class="gold-text">Palantir</span>
+        </h1>
+        <p class="hero-description">
+          A comprehensive deep-dive into Palantir Technologies — the data analytics
+          powerhouse transforming how governments and enterprises make critical decisions.
+          Led by visionary CEO Alex Karp, PLTR stands at the frontier of AI-driven operations.
+        </p>
+        <div class="hero-cta">
+          <a href="#stock" class="btn btn-primary">View Stock Analysis &#8595;</a>
+          <a href="#target" class="btn btn-outline">$125 Price Target &#8594;</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-stats-grid">
+          <div class="hero-stat-card accent animate-on-scroll">
+            <div class="stat-icon">&#128200;</div>
+            <div class="stat-value" id="heroMarketCap">--</div>
+            <div class="stat-label">Market Cap</div>
+          </div>
+          <div class="hero-stat-card gold animate-on-scroll delay-1">
+            <div class="stat-icon">&#128176;</div>
+            <div class="stat-value" id="heroRevenue">$2.87B</div>
+            <div class="stat-label">FY2024 Revenue</div>
+          </div>
+          <div class="hero-stat-card success animate-on-scroll delay-2">
+            <div class="stat-icon">&#128640;</div>
+            <div class="stat-value" id="heroGrowth">+26%</div>
+            <div class="stat-label">YoY Revenue Growth</div>
+          </div>
+          <div class="hero-stat-card animate-on-scroll delay-3">
+            <div class="stat-icon">&#127759;</div>
+            <div class="stat-value">593+</div>
+            <div class="stat-label">Enterprise Customers</div>
+          </div>
+          <div class="hero-stat-card hero-ceo-card animate-on-scroll delay-4">
+            <div class="ceo-avatar">AK</div>
+            <div class="ceo-info">
+              <h4>Dr. Alexander Karp</h4>
+              <p>Co-Founder &amp; Chief Executive Officer — Leading Palantir since 2003 with a philosophy-driven approach to building world-class data infrastructure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT / BACKGROUND ========== -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Company Background</span>
+        <h2 class="section-title">Building the World's Most<br>Important Data Company</h2>
+        <p class="section-subtitle">
+          From a post-9/11 intelligence mission to a publicly-traded AI powerhouse,
+          Palantir has redefined what software platforms can achieve.
+        </p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text animate-on-scroll">
+          <p>
+            Founded in 2003 by Peter Thiel, Alex Karp, Joe Lonsdale, Stephen Cohen, and Nathan
+            Gettings, Palantir Technologies was born from a conviction that technology could
+            protect civil liberties while empowering institutions to make better decisions.
+            Named after the all-seeing stones in Tolkien's Lord of the Rings, the company set
+            out to build software that could integrate and analyze vast, disparate data sets
+            to uncover hidden patterns and actionable intelligence.
+          </p>
+          <p>
+            For its first decade, Palantir operated largely in the shadows, serving intelligence
+            agencies and the U.S. military with its Gotham platform. The software played critical
+            roles in counter-terrorism operations, fraud detection, and disaster response. This
+            deep government relationship created an unassailable moat — battle-tested technology
+            trusted at the highest classification levels.
+          </p>
+          <p>
+            Under Dr. Alexander Karp's unconventional leadership — he holds a Ph.D. in philosophy
+            from Goethe University Frankfurt — Palantir pursued a long-term vision rather than
+            chasing quarterly metrics. This patient approach paid off: the company went public
+            via direct listing on September 30, 2020, and has since accelerated its commercial
+            expansion with the Foundry and AIP (Artificial Intelligence Platform) products.
+          </p>
+          <p>
+            Today, Palantir operates three core platforms: <strong>Gotham</strong> for government
+            and defense, <strong>Foundry</strong> for commercial enterprises, and
+            <strong>AIP</strong> which brings large language models directly into operational
+            workflows. The AIP platform has been a game-changer, driving explosive demand as
+            organizations race to deploy AI in production environments.
+          </p>
+        </div>
+
+        <div class="about-highlights">
+          <div class="highlight-card animate-on-scroll">
+            <div class="highlight-icon blue">&#127974;</div>
+            <div>
+              <h4>Government Foundation</h4>
+              <p>Deep roots in U.S. Intelligence Community and DoD. Palantir's platforms power mission-critical operations across dozens of allied nations and agencies.</p>
+            </div>
+          </div>
+          <div class="highlight-card animate-on-scroll delay-1">
+            <div class="highlight-icon gold">&#128736;</div>
+            <div>
+              <h4>Foundry Platform</h4>
+              <p>Enterprise operating system that transforms how organizations use data. Deployed at Fortune 500 companies across healthcare, energy, manufacturing, and finance.</p>
+            </div>
+          </div>
+          <div class="highlight-card animate-on-scroll delay-2">
+            <div class="highlight-icon green">&#129302;</div>
+            <div>
+              <h4>AIP Revolution</h4>
+              <p>The Artificial Intelligence Platform embeds LLMs into real-world operations, enabling enterprises to deploy AI safely with human oversight and existing data infrastructure.</p>
+            </div>
+          </div>
+          <div class="highlight-card animate-on-scroll delay-3">
+            <div class="highlight-icon red">&#128640;</div>
+            <div>
+              <h4>Path to Profitability</h4>
+              <p>Achieved GAAP profitability in 2023 with expanding margins. Free cash flow positive with a robust balance sheet holding over $4 billion in cash reserves.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline" style="margin-top: 80px;">
+        <div class="section-header animate-on-scroll" style="margin-bottom: 48px;">
+          <span class="section-label">Key Milestones</span>
+          <h2 class="section-title">The Palantir Journey</h2>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2003</span>
+            <h4>Founded in Palo Alto</h4>
+            <p>Peter Thiel, Alex Karp, and co-founders launch Palantir to build data analytics for intelligence agencies.</p>
+          </div>
+        </div>
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2008</span>
+            <h4>First Major Government Contracts</h4>
+            <p>Palantir Gotham deployed across intelligence and military agencies, proving its value in counter-terrorism.</p>
+          </div>
+        </div>
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2016</span>
+            <h4>Foundry Launch</h4>
+            <p>Palantir Foundry released for commercial enterprises, marking the expansion beyond government into the private sector.</p>
+          </div>
+        </div>
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2020</span>
+            <h4>Direct Listing on NYSE</h4>
+            <p>PLTR goes public at ~$10 per share via direct listing on September 30, 2020, achieving a $22B market capitalization.</p>
+          </div>
+        </div>
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2023</span>
+            <h4>GAAP Profitability Achieved</h4>
+            <p>First full year of GAAP profitability with $210M net income. Joined the S&amp;P 500 index in September 2024.</p>
+          </div>
+        </div>
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2024</span>
+            <h4>AIP Drives Explosive Growth</h4>
+            <p>AIP platform adoption accelerates with 500+ boot camps. Commercial revenue surges as enterprises deploy AI at scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STOCK ANALYSIS ========== -->
+  <section id="stock">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Stock Analysis</span>
+        <h2 class="section-title">PLTR Historical Performance<br>&amp; Market Data</h2>
+        <p class="section-subtitle">
+          Real-time and historical stock data powering interactive charts and analytics.
+          Tracking PLTR's journey from IPO to present day.
+        </p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Metrics Row -->
+      <div class="metrics-row animate-on-scroll">
+        <div class="metric-card">
+          <div class="metric-value" id="metricPrice">--</div>
+          <div class="metric-label">Current Price</div>
+          <div class="metric-change" id="metricPriceChange">--</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="metricVolume">--</div>
+          <div class="metric-label">Avg Volume</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="metric52High">--</div>
+          <div class="metric-label">52-Week High</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="metric52Low">--</div>
+          <div class="metric-label">52-Week Low</div>
+        </div>
+      </div>
+
+      <!-- Main Price Chart -->
+      <div class="chart-container animate-on-scroll">
+        <div class="chart-header">
+          <div>
+            <h3>PLTR Stock Price History</h3>
+            <span class="chart-meta">Daily Close &bull; Source: Yahoo Finance API</span>
+          </div>
+          <div class="chart-controls" id="priceChartControls">
+            <button class="chart-btn" data-range="30">1M</button>
+            <button class="chart-btn" data-range="90">3M</button>
+            <button class="chart-btn" data-range="180">6M</button>
+            <button class="chart-btn active" data-range="365">1Y</button>
+            <button class="chart-btn" data-range="1825">MAX</button>
+          </div>
+        </div>
+        <div class="chart-wrapper" id="priceChartWrapper">
+          <div class="chart-loading" id="priceChartLoading">
+            <div class="spinner"></div>
+            <span>Loading stock data...</span>
+          </div>
+          <canvas id="priceChart" style="display:none;"></canvas>
+        </div>
+      </div>
+
+      <!-- Two-column charts -->
+      <div class="charts-grid">
+        <div class="chart-container animate-on-scroll">
+          <div class="chart-header">
+            <h3>Volume Analysis</h3>
+          </div>
+          <div class="chart-wrapper" id="volumeChartWrapper">
+            <div class="chart-loading" id="volumeChartLoading">
+              <div class="spinner"></div>
+              <span>Loading...</span>
+            </div>
+            <canvas id="volumeChart" style="display:none;"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-container animate-on-scroll delay-1">
+          <div class="chart-header">
+            <h3>Revenue Growth (Quarterly)</h3>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second row charts -->
+      <div class="charts-grid" style="margin-top: 32px;">
+        <div class="chart-container animate-on-scroll">
+          <div class="chart-header">
+            <h3>Profitability Trend</h3>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="profitChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-container animate-on-scroll delay-1">
+          <div class="chart-header">
+            <h3>Revenue Mix: Gov vs Commercial</h3>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="segmentChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICE TARGET SECTION ========== -->
+  <section id="target">
+    <div class="container">
+      <div class="target-hero animate-on-scroll">
+        <span class="section-label">Price Target Thesis</span>
+        <div class="target-price-display">$125</div>
+        <p class="target-subtitle">A data-driven case for Palantir's realistic valuation</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Key Arguments -->
+      <div class="argument-grid">
+        <div class="argument-card animate-on-scroll">
+          <div class="argument-number">ARGUMENT 01</div>
+          <h3>Accelerating Revenue Growth with Expanding TAM</h3>
+          <p>
+            Palantir's Total Addressable Market has expanded dramatically with AIP. The company's
+            FY2024 revenue hit $2.87B with 26% YoY growth, accelerating from 17% in 2023.
+            Commercial revenue alone grew 36% as enterprise adoption accelerates. At a sustained
+            25%+ growth trajectory, revenue reaching $5B+ by 2027 supports a significantly
+            higher valuation floor.
+          </p>
+          <div class="argument-stat">&#128200; 26% YoY Revenue Growth Accelerating</div>
+        </div>
+
+        <div class="argument-card animate-on-scroll delay-1">
+          <div class="argument-number">ARGUMENT 02</div>
+          <h3>Operating Leverage &amp; Margin Expansion</h3>
+          <p>
+            Palantir achieved GAAP operating margins of ~16% in 2024, up from near-zero in 2022.
+            The software-centric model with high retention rates (NRR 115%+) creates natural
+            operating leverage. As revenue scales, margins should expand toward 25-30% — each
+            new customer adds revenue with minimal marginal cost, driving substantial free cash
+            flow expansion.
+          </p>
+          <div class="argument-stat">&#128176; ~16% GAAP Operating Margin</div>
+        </div>
+
+        <div class="argument-card animate-on-scroll delay-2">
+          <div class="argument-number">ARGUMENT 03</div>
+          <h3>AI Platform Moat &amp; First-Mover Advantage</h3>
+          <p>
+            While competitors build AI tools, Palantir builds the ontology layer that makes AI
+            actually work in production. AIP doesn't just offer a chatbot — it integrates LLMs
+            into complex operational workflows with guardrails, access controls, and real-time
+            data. This infrastructure moat is nearly impossible to replicate, creating sticky,
+            mission-critical deployments with multi-year contracts.
+          </p>
+          <div class="argument-stat">&#129302; 500+ AIP Boot Camps Completed</div>
+        </div>
+
+        <div class="argument-card animate-on-scroll delay-3">
+          <div class="argument-number">ARGUMENT 04</div>
+          <h3>Government Tailwinds &amp; Defense Spending</h3>
+          <p>
+            U.S. defense spending continues to rise with increased focus on AI/ML integration.
+            Palantir holds strategic contracts including the Army's TITAN program ($178M) and
+            multiple CDAO initiatives. Allied nations are increasingly adopting Palantir platforms.
+            Government revenue provides a stable, recurring base that de-risks the overall
+            business model — currently ~55% of total revenue.
+          </p>
+          <div class="argument-stat">&#127758; $1.58B Government Revenue FY2024</div>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="comparison-section animate-on-scroll">
+        <div class="section-header" style="margin-bottom: 32px;">
+          <h3 class="section-title" style="font-size: 1.75rem;">Peer Comparison Analysis</h3>
+          <p class="section-subtitle">How Palantir stacks up against high-growth enterprise software peers</p>
+        </div>
+
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Ticker</th>
+                <th>Market Cap</th>
+                <th>Rev Growth (YoY)</th>
+                <th>Gross Margin</th>
+                <th>P/S Ratio</th>
+                <th>Free Cash Flow Margin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-row">
+                <td><strong>Palantir</strong></td>
+                <td class="ticker-cell">PLTR</td>
+                <td id="compPltrMcap">--</td>
+                <td>26%</td>
+                <td>81%</td>
+                <td id="compPltrPS">--</td>
+                <td>26%</td>
+              </tr>
+              <tr>
+                <td>Snowflake</td>
+                <td class="ticker-cell">SNOW</td>
+                <td>$55B</td>
+                <td>32%</td>
+                <td>71%</td>
+                <td>17x</td>
+                <td>8%</td>
+              </tr>
+              <tr>
+                <td>Datadog</td>
+                <td class="ticker-cell">DDOG</td>
+                <td>$38B</td>
+                <td>26%</td>
+                <td>80%</td>
+                <td>15x</td>
+                <td>33%</td>
+              </tr>
+              <tr>
+                <td>CrowdStrike</td>
+                <td class="ticker-cell">CRWD</td>
+                <td>$82B</td>
+                <td>33%</td>
+                <td>75%</td>
+                <td>22x</td>
+                <td>32%</td>
+              </tr>
+              <tr>
+                <td>Cloudflare</td>
+                <td class="ticker-cell">NET</td>
+                <td>$35B</td>
+                <td>30%</td>
+                <td>77%</td>
+                <td>20x</td>
+                <td>14%</td>
+              </tr>
+              <tr>
+                <td>C3.ai</td>
+                <td class="ticker-cell">AI</td>
+                <td>$4B</td>
+                <td>18%</td>
+                <td>59%</td>
+                <td>12x</td>
+                <td>-25%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Target Chart -->
+      <div class="chart-container animate-on-scroll" style="margin-top: 48px;">
+        <div class="chart-header">
+          <div>
+            <h3>Price Target Scenario Analysis</h3>
+            <span class="chart-meta">Forward Revenue Estimates &bull; Base Case = $125</span>
+          </div>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="targetChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Valuation Cards -->
+      <div class="valuation-grid animate-on-scroll">
+        <div class="valuation-card">
+          <div class="scenario">Bear Case</div>
+          <div class="val-price" style="color: var(--danger);">$85</div>
+          <div class="val-desc">
+            Growth decelerates to 18%. Commercial traction slows. Assumes 20x forward P/S on $4.2B 2027 revenue.
+          </div>
+        </div>
+        <div class="valuation-card featured">
+          <div class="scenario">Base Case</div>
+          <div class="val-price">$125</div>
+          <div class="val-desc">
+            25% CAGR sustained. AIP drives commercial expansion. Margins expand to 25%. Assumes 22x forward P/S on $5.6B 2027 revenue.
+          </div>
+        </div>
+        <div class="valuation-card">
+          <div class="scenario">Bull Case</div>
+          <div class="val-price" style="color: var(--success);">$170</div>
+          <div class="val-desc">
+            30%+ growth from AIP adoption wave. Government spending surge. Assumes 25x forward P/S on $6.3B 2027 revenue.
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Summary -->
+      <div class="argument-card animate-on-scroll" style="margin-top: 48px; text-align: center; padding: 48px;">
+        <div class="argument-number">THE BOTTOM LINE</div>
+        <h3 style="font-size: 1.5rem; max-width: 700px; margin: 0 auto 16px;">
+          At $125, Palantir is Priced for Execution — Not Perfection
+        </h3>
+        <p style="max-width: 680px; margin: 0 auto;">
+          The $125 target implies a ~22x forward price-to-sales ratio on $5.6B in projected 2027
+          revenue. Given Palantir's 81% gross margins, accelerating commercial growth, AIP-driven
+          competitive moat, and expanding government contracts, this multiple is justified and
+          supported by historical precedent among high-growth, high-margin enterprise software
+          companies. The risk/reward at current levels skews favorable for long-term investors.
+        </p>
+        <div class="argument-stat" style="margin-top: 24px;">&#127919; $125 Base Case &bull; 22x Forward P/S &bull; $5.6B 2027E Revenue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <a href="#" class="nav-logo" style="font-size: 1.1rem;">
+            <div class="nav-logo-icon" style="width: 30px; height: 30px; font-size: 0.9rem;">P</div>
+            <span>Palantir Analysis</span>
+          </a>
+          <p>&copy; 2025 Independent Research. Not affiliated with Palantir Technologies Inc.</p>
+        </div>
+        <div class="footer-disclaimer">
+          <strong>Disclaimer:</strong> This analysis is for educational and informational purposes only.
+          It does not constitute investment advice. Always conduct your own research and consult a
+          qualified financial advisor before making investment decisions. Past performance is not
+          indicative of future results. Stock data sourced from public APIs.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
