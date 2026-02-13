@@ -1,0 +1,70 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000000000000000000000000000000000000..5591b5c86cb9de951d8a15956317fa43c6b930dc
+--- /dev/null
++++ b/index.html
+@@ -0,0 +1,60 @@
++<!DOCTYPE html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>Modern Landing Page</title>
++    <link rel="stylesheet" href="styles.css" />
++  </head>
++  <body>
++    <header class="site-header">
++      <nav class="navbar" aria-label="Primary navigation">
++        <a class="brand" href="#home">BrightStart</a>
++        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
++          ☰
++        </button>
++        <ul class="nav-links">
++          <li><a href="#home">Home</a></li>
++          <li><a href="#features">Features</a></li>
++          <li><a href="#about">About</a></li>
++          <li><a href="#contact">Contact</a></li>
++        </ul>
++      </nav>
++    </header>
++
++    <main>
++      <section id="home" class="hero" aria-labelledby="hero-title">
++        <div class="hero-content">
++          <h1 id="hero-title">Build faster with confidence</h1>
++          <p>
++            BrightStart helps teams launch polished products quickly with clean workflows and
++            thoughtful tooling.
++          </p>
++          <a class="cta-button" href="#features">Explore Features</a>
++        </div>
++      </section>
++
++      <section id="features" class="features" aria-labelledby="features-title">
++        <h2 id="features-title">Why teams choose BrightStart</h2>
++        <div class="feature-grid">
++          <article class="feature-card">
++            <h3>Fast setup</h3>
++            <p>Get from idea to implementation in minutes with an intuitive onboarding flow.</p>
++          </article>
++          <article class="feature-card">
++            <h3>Collaborative by design</h3>
++            <p>Keep everyone aligned with clear milestones, updates, and shared context.</p>
++          </article>
++          <article class="feature-card">
++            <h3>Reliable performance</h3>
++            <p>Deliver smooth user experiences at scale with modern best practices built in.</p>
++          </article>
++        </div>
++      </section>
++    </main>
++
++    <footer id="contact" class="site-footer">
++      <p>&copy; 2026 BrightStart. All rights reserved.</p>
++    </footer>
++  </body>
++</html>
+ 
+EOF
+)
