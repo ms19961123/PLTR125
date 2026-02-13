@@ -1,9 +1,9 @@
  (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/index.html b/index.html
-index b5c1710945d7786caa0b033a99b6b80b99c5d287..a9c308678a35fee88b54ed2d71c1c6e932bf02af 100644
+index b5c1710945d7786caa0b033a99b6b80b99c5d287..8ffb2cadc0cd5e68aa5c1ce1228f5f703fd92dd2 100644
 --- a/index.html
 +++ b/index.html
-@@ -1,70 +1,145 @@
+@@ -1,70 +1,149 @@
 - (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 -diff --git a/index.html b/index.html
 -new file mode 100644
@@ -79,142 +79,146 @@ index b5c1710945d7786caa0b033a99b6b80b99c5d287..a9c308678a35fee88b54ed2d71c1c6e9
 +  <head>
 +    <meta charset="UTF-8" />
 +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+    <title>Vanguard FP&A Landing Page</title>
++    <title>Vanguard FP&A | Executive Overview</title>
 +    <link rel="stylesheet" href="styles.css" />
 +  </head>
 +  <body>
 +    <header class="site-header">
-+      <nav class="navbar" aria-label="Primary">
-+        <a class="brand" href="#overview">Vanguard FP&amp;A</a>
-+        <ul class="nav-links">
-+          <li><a href="#overview">Overview</a></li>
-+          <li><a href="#planning">Planning</a></li>
-+          <li><a href="#forecasting">Forecasting</a></li>
-+          <li><a href="#performance">Performance</a></li>
-+          <li><a href="#governance">Governance</a></li>
-+          <li><a href="#team">Team Model</a></li>
-+        </ul>
-+      </nav>
++      <div class="container">
++        <nav class="navbar" aria-label="Primary navigation">
++          <a class="brand" href="#top">Vanguard FP&amp;A</a>
++          <ul class="nav-links">
++            <li><a href="#mandate">Mandate</a></li>
++            <li><a href="#planning">Planning Cycle</a></li>
++            <li><a href="#analytics">Analytics</a></li>
++            <li><a href="#governance">Governance</a></li>
++            <li><a href="#model">Operating Model</a></li>
++          </ul>
++        </nav>
++      </div>
 +    </header>
 +
-+    <main>
-+      <section id="overview" class="hero" aria-labelledby="hero-title">
++    <main id="top">
++      <section class="hero" aria-labelledby="hero-title">
 +        <div class="container">
-+          <p class="eyebrow">Financial Planning &amp; Analysis</p>
-+          <h1 id="hero-title">How FP&amp;A Drives Vanguard Strategy, Performance, and Accountability</h1>
++          <p class="kicker">Executive Brief</p>
++          <h1 id="hero-title">Financial Planning &amp; Analysis at Vanguard</h1>
 +          <p class="lead">
-+            Vanguard FP&amp;A connects enterprise strategy to day-to-day decisions through long-range planning,
-+            annual budgeting, rolling forecasts, capital allocation, and executive performance insights.
-+            This landing page summarizes the end-to-end operating model used to guide growth, control risk,
-+            and sustain client value.
++            FP&amp;A enables disciplined growth by aligning strategy, resource allocation, risk oversight,
++            and performance accountability across the enterprise.
 +          </p>
++          <div class="hero-highlights" role="list" aria-label="FP&A outcomes">
++            <p role="listitem"><strong>Clear priorities:</strong> Capital and expense deployed to highest-value initiatives.</p>
++            <p role="listitem"><strong>Forward visibility:</strong> Rolling forecasts anticipate changes early.</p>
++            <p role="listitem"><strong>Decision quality:</strong> Leadership receives concise, action-oriented insights.</p>
++          </div>
 +        </div>
 +      </section>
 +
-+      <section id="planning" class="section" aria-labelledby="planning-title">
++      <section id="mandate" class="section" aria-labelledby="mandate-title">
 +        <div class="container">
-+          <h2 id="planning-title">1) Strategic &amp; Annual Planning</h2>
-+          <div class="grid two-col">
++          <h2 id="mandate-title">FP&amp;A Mandate</h2>
++          <div class="cards three-up">
 +            <article class="card">
-+              <h3>Long-Range Plan (LRP)</h3>
-+              <p>Translates Vanguard's multi-year objectives into revenue, expense, headcount, and investment targets by business line.</p>
++              <h3>Strategy Translation</h3>
++              <p>Convert long-term enterprise objectives into measurable financial and operating commitments.</p>
++            </article>
++            <article class="card">
++              <h3>Performance Stewardship</h3>
++              <p>Track value creation through growth, efficiency, service quality, and risk-adjusted outcomes.</p>
++            </article>
++            <article class="card">
++              <h3>Capital Discipline</h3>
++              <p>Ensure investments are governed by clear business cases, scenario testing, and accountability.</p>
++            </article>
++          </div>
++        </div>
++      </section>
++
++      <section id="planning" class="section tone" aria-labelledby="planning-title">
++        <div class="container">
++          <h2 id="planning-title">Planning &amp; Forecasting Cycle</h2>
++          <div class="cards two-up">
++            <article class="card">
++              <h3>Long-Range Planning (3-5 Years)</h3>
++              <p>Define strategic trajectory by line of business with revenue, margin, cost, and capacity envelopes.</p>
 +            </article>
 +            <article class="card">
 +              <h3>Annual Operating Plan</h3>
-+              <p>Builds a one-year budget with quarterly phasing, aligned to strategic priorities, cost discipline, and capacity assumptions.</p>
++              <p>Set baseline commitments with quarterly phasing, assumptions, and executable ownership.</p>
 +            </article>
 +            <article class="card">
-+              <h3>Resource Prioritization</h3>
-+              <p>Ranks initiatives by client impact, expected returns, regulatory needs, and execution risk to ensure disciplined spend.</p>
++              <h3>Rolling Reforecast</h3>
++              <p>Refresh outlook monthly or quarterly using key drivers: market movements, net flows, pricing, and productivity.</p>
 +            </article>
 +            <article class="card">
-+              <h3>Scenario Design</h3>
-+              <p>Assesses market and business uncertainty through base, upside, and downside scenarios to improve resilience.</p>
-+            </article>
-+          </div>
-+        </div>
-+      </section>
-+
-+      <section id="forecasting" class="section alt" aria-labelledby="forecasting-title">
-+        <div class="container">
-+          <h2 id="forecasting-title">2) Forecasting &amp; Driver-Based Insights</h2>
-+          <div class="grid three-col">
-+            <article class="card">
-+              <h3>Rolling Forecasts</h3>
-+              <p>Monthly or quarterly reforecasts update full-year outlooks for assets, flows, margins, and expense trajectories.</p>
-+            </article>
-+            <article class="card">
-+              <h3>Key Business Drivers</h3>
-+              <p>Forecasts are anchored on actionable drivers such as market levels, client behavior, pricing, staffing, and productivity.</p>
-+            </article>
-+            <article class="card">
-+              <h3>Variance Intelligence</h3>
-+              <p>FP&amp;A explains plan-versus-actual and forecast-versus-plan variances with clear root causes and actions.</p>
++              <h3>Variance &amp; Action</h3>
++              <p>Diagnose plan-to-actual gaps, quantify impacts, and assign corrective actions with clear timelines.</p>
 +            </article>
 +          </div>
 +        </div>
 +      </section>
 +
-+      <section id="performance" class="section" aria-labelledby="performance-title">
++      <section id="analytics" class="section" aria-labelledby="analytics-title">
 +        <div class="container">
-+          <h2 id="performance-title">3) Performance Management &amp; Executive Reporting</h2>
-+          <div class="grid two-col">
++          <h2 id="analytics-title">Executive Analytics &amp; Reporting</h2>
++          <div class="cards three-up">
 +            <article class="card">
-+              <h3>KPI Framework</h3>
-+              <p>Tracks financial and operating indicators across growth, efficiency, service quality, and risk outcomes.</p>
++              <h3>KPI Architecture</h3>
++              <p>Maintain a balanced scorecard spanning growth, cost efficiency, client outcomes, and risk indicators.</p>
 +            </article>
 +            <article class="card">
 +              <h3>Leadership Reviews</h3>
-+              <p>Produces concise monthly business reviews and board-ready materials with trends, implications, and decisions required.</p>
++              <p>Deliver monthly review packs with trend context, outlook implications, and priority decisions.</p>
 +            </article>
 +            <article class="card">
-+              <h3>Action Tracking</h3>
-+              <p>Monitors commitments from review forums and quantifies expected impact to maintain execution accountability.</p>
-+            </article>
-+            <article class="card">
-+              <h3>Benchmarking</h3>
-+              <p>Compares key metrics versus internal targets and external peers to support continuous performance improvement.</p>
++              <h3>Decision Support</h3>
++              <p>Provide scenario-based recommendations, including upside/downside sensitivities and trade-offs.</p>
 +            </article>
 +          </div>
 +        </div>
 +      </section>
 +
-+      <section id="governance" class="section alt" aria-labelledby="governance-title">
++      <section id="governance" class="section tone" aria-labelledby="governance-title">
 +        <div class="container">
-+          <h2 id="governance-title">4) Governance, Risk, and Capital Discipline</h2>
-+          <div class="grid three-col">
-+            <article class="card">
-+              <h3>Investment Governance</h3>
-+              <p>Applies stage-gate and business-case standards to evaluate strategic programs and technology investments.</p>
-+            </article>
-+            <article class="card">
-+              <h3>Controls &amp; Compliance</h3>
-+              <p>Maintains robust financial controls, transparent assumptions, and clear audit trails across planning cycles.</p>
-+            </article>
-+            <article class="card">
-+              <h3>Balance of Growth &amp; Cost</h3>
-+              <p>Supports decisions that protect long-term client value while managing near-term operating leverage.</p>
-+            </article>
-+          </div>
-+        </div>
-+      </section>
-+
-+      <section id="team" class="section" aria-labelledby="team-title">
-+        <div class="container">
-+          <h2 id="team-title">5) FP&amp;A Team Model &amp; Operating Rhythm</h2>
-+          <ul class="timeline">
-+            <li><strong>Business FP&amp;A Partners:</strong> Embed with divisions, own planning narratives, and challenge assumptions.</li>
-+            <li><strong>Corporate FP&amp;A:</strong> Consolidate enterprise views, align standards, and advise executive leadership.</li>
-+            <li><strong>Analytics &amp; Systems:</strong> Enable data quality, dashboards, automation, and forecasting model performance.</li>
-+            <li><strong>Monthly Cadence:</strong> Close, analyze, reforecast, review, and prioritize actions in one integrated rhythm.</li>
++          <h2 id="governance-title">Governance &amp; Risk Integration</h2>
++          <ul class="checklist">
++            <li><strong>Investment gates:</strong> Standardized approval checkpoints from concept through realization.</li>
++            <li><strong>Control rigor:</strong> Transparent assumptions, auditable models, and consistent data definitions.</li>
++            <li><strong>Scenario readiness:</strong> Base, upside, and downside views to support resilient decisions.</li>
++            <li><strong>Execution tracking:</strong> Benefits realization monitored against original business cases.</li>
 +          </ul>
++        </div>
++      </section>
++
++      <section id="model" class="section" aria-labelledby="model-title">
++        <div class="container">
++          <h2 id="model-title">Operating Model</h2>
++          <div class="cards two-up">
++            <article class="card">
++              <h3>Business FP&amp;A Partners</h3>
++              <p>Embedded with each division to align local plans with enterprise priorities and outcomes.</p>
++            </article>
++            <article class="card">
++              <h3>Corporate FP&amp;A</h3>
++              <p>Consolidates performance, shapes executive narratives, and informs enterprise trade-off decisions.</p>
++            </article>
++            <article class="card">
++              <h3>Analytics &amp; Systems Team</h3>
++              <p>Improves forecast accuracy and cycle speed through automation, dashboarding, and model governance.</p>
++            </article>
++            <article class="card">
++              <h3>Monthly Rhythm</h3>
++              <p>Close → Analyze → Reforecast → Review → Act, with explicit owners and measurable follow-through.</p>
++            </article>
++          </div>
 +        </div>
 +      </section>
 +    </main>
 +
 +    <footer class="site-footer">
 +      <div class="container">
-+        <p>Vanguard FP&amp;A landing page — structured overview of planning, forecasting, performance management, and governance.</p>
++        <p>Vanguard FP&amp;A — executive overview of mandate, planning cadence, governance, and enterprise performance management.</p>
 +      </div>
 +    </footer>
 +  </body>
