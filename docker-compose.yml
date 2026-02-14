@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgresql://communitycircle:communitycircle@postgres:5432/communitycircle
+      NEXTAUTH_URL: http://localhost:3000
+      NEXTAUTH_SECRET: dev-only-secret-change-me
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - postgres
+    command: sh -c "npm install && npm run dev"
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: communitycircle
+      POSTGRES_USER: communitycircle
+      POSTGRES_PASSWORD: communitycircle
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

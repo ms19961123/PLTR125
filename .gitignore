@@ -1,0 +1,26 @@
+# dependencies
+node_modules
+
+# nextjs
+.next
+out
+
+# tests
+coverage
+playwright-report
+test-results
+
+# misc
+.DS_Store
+*.log
+
+# env
+.env
+.env.local
+.env.production
+
+# prisma
+prisma/dev.db
+
+# docker
+postgres-data
